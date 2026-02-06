@@ -2,10 +2,6 @@
   publish = "."
   command = "echo 'No build command needed for static site'"
 
-# Enable Netlify Identity for CMS authentication
-[[plugins]]
-  package = "netlify-plugin-identity-widget"
-
 # Redirect rules
 [[redirects]]
   from = "/*"

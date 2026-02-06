@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+  command = "echo 'No build command needed for static site'"
+
+# Enable Netlify Identity for CMS authentication
+[[plugins]]
+  package = "netlify-plugin-identity-widget"
+
+# Redirect rules
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# Set custom headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

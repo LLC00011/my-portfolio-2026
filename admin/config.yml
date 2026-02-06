@@ -1,0 +1,63 @@
+backend:
+  name: git-gateway
+  branch: main # Change to your default branch if different
+
+# When using Netlify, you can use their editorial workflow
+publish_mode: editorial_workflow
+
+# Media files will be stored in the repo under images/uploads
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Projects Collection
+  - name: "projects"
+    label: "Projects"
+    folder: "projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of title (e.g., pme-compass)"}
+      - {label: "Short Description", name: "short_description", widget: "text"}
+      - {label: "Subtitle", name: "subtitle", widget: "text", required: false}
+      - {label: "Thumbnail Image", name: "thumbnail", widget: "image"}
+      - {label: "Hero Image", name: "hero_image", widget: "image"}
+      - {label: "Description", name: "description", widget: "markdown", hint: "Full project description with ## for headings"}
+      - {label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first"}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+
+  # Pages Collection
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Resume"
+        name: "resume"
+        file: "content/resume.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - {label: "Content", name: "content", widget: "markdown", hint: "Use ## for section headings"}
+      
+      - label: "Contact Info"
+        name: "contact"
+        file: "content/contact.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - {label: "Intro Text", name: "intro", widget: "text"}
+          - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "LinkedIn URL", name: "linkedin", widget: "string", required: false}
+      
+      - label: "Site Settings"
+        name: "settings"
+        file: "content/settings.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - {label: "Site Title", name: "site_title", widget: "string", default: "LLC"}
+          - {label: "Hero Tagline", name: "hero_tagline", widget: "text"}
+          - {label: "Meta Description", name: "meta_description", widget: "text"}

@@ -4,7 +4,7 @@
 /* Replay the entrance animations when a case page comes back from the back/forward cache. */
 window.addEventListener('pageshow', function (e) {
   if (!e.persisted) return;
-  document.querySelectorAll('.snap > .cover:first-child img, #go-wrap').forEach(function (el) {
+  document.querySelectorAll('.snap > .hero:first-child img, #go-wrap').forEach(function (el) {
     el.style.animation = 'none';
     void el.offsetWidth;
     el.style.animation = '';
@@ -20,7 +20,7 @@ window.addEventListener('pageshow', function (e) {
   var bar = go.querySelector('.ring-bar');
   var CIRC = 2 * Math.PI * 23;
   var caseName = go.getAttribute('data-case');
-  var narrow = window.matchMedia('(max-width:960px),(max-aspect-ratio:1/1)');
+  var narrow = window.matchMedia('(max-width:1179px),(max-aspect-ratio:1/1)');
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)');
   var atEnd = false;
 
@@ -33,11 +33,10 @@ window.addEventListener('pageshow', function (e) {
     return el.getBoundingClientRect().top - snap.getBoundingClientRect().top;
   }
   function update() {
-    var list = stops();
-    var last = list[list.length - 1];
-    atEnd = !!last && offset(last) <= 8;
+    // Same rule at every size: the end is the bottom of the scroll, which is also where the ring is full.
     var range = snap.scrollHeight - snap.clientHeight;
-    var progress = atEnd ? 1 : (range > 0 ? Math.min(1, Math.max(0, snap.scrollTop / range)) : 0);
+    atEnd = range > 0 ? snap.scrollTop >= range - 2 : true;
+    var progress = range > 0 ? Math.min(1, Math.max(0, snap.scrollTop / range)) : 1;
     bar.style.strokeDashoffset = String(CIRC * (1 - progress));
     go.classList.toggle('end', atEnd);
     wrap.classList.toggle('end', atEnd);
@@ -52,5 +51,6 @@ window.addEventListener('pageshow', function (e) {
   });
   snap.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+  window.addEventListener('load', update);
   update();
 })();

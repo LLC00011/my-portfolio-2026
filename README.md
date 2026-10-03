@@ -16,7 +16,7 @@ Static portfolio site: a landing page with selected work (Works), three case pag
 
 ## How the layout scales
 
-Desktop pages are designed at 1350 x 800 px per fold. Every size in `css/style.css` is `calc(N * var(--u))`, where `--u` is 1/1350 of the viewport width, so layouts scale with the window. Narrow or portrait viewports switch to a 390 px wide mobile base where the image opens each case.
+Desktop pages are designed at 1350 x 800 px per fold. Every size in `css/style.css` is `calc(N * var(--u))`, where `--u` is 1/1350 of the viewport width, so layouts scale with the window. Viewports narrower than 1180 px (or portrait) switch to a stacked layout on a 390 px wide base, capped at 1.2x, where the image opens each case.
 
 ## Run locally
 

@@ -1,6 +1,16 @@
 /* Navigation pill. On case pages the arrow shows scroll progress as a ring that grows
    clockwise. Until the last fold it scrolls to the next fold; at the last fold it
    turns to point right, fills with the dark blue, shows the next case name and links to it. */
+/* Replay the entrance animations when a case page comes back from the back/forward cache. */
+window.addEventListener('pageshow', function (e) {
+  if (!e.persisted) return;
+  document.querySelectorAll('.snap > .cover:first-child img, #go-wrap').forEach(function (el) {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  });
+});
+
 (function () {
   var snap = document.querySelector('.snap');
   var go = document.getElementById('go');

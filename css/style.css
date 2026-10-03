@@ -230,13 +230,13 @@ img.ab{width:100% !important}
 .stats3{grid-template-columns:minmax(0,1fr)}
 .stats3 .stat{height:auto}
 .side-text{position:static;width:auto;padding:calc(32 * var(--u)) calc(24 * var(--u)) 0}
-.ic .tip{display:none}
 .ic-link{width:calc(44 * var(--pu));height:calc(44 * var(--pu))}
 .go{width:calc(44 * var(--pu));height:calc(44 * var(--pu))}
-.gowrap{align-items:center}
-.gowrap{animation-name:pill-grow-h}
-.gowrap .tip{position:static;transform:none;opacity:0;max-width:0;padding:0;overflow:hidden;border:0;box-shadow:none;background:transparent;font-size:calc(15 * var(--pu));transition:max-width .45s ease,opacity .3s ease,margin .45s ease}
-.gowrap.end .tip{transform:none;opacity:1;max-width:calc(120 * var(--pu));margin-left:calc(10 * var(--pu));padding-right:calc(6 * var(--pu))}
+.gowrap{align-items:center;animation-name:pill-grow-h}
+.ic,.gowrap{position:static}
+.tip{left:50%;top:auto;bottom:calc(100% + 12 * var(--pu));transform:translate(-50%,calc(6 * var(--pu)));font-size:calc(15 * var(--pu))}
+.ic-link:focus-visible + .tip,.gowrap.end .tip{transform:translate(-50%,0)}
+@media (hover:hover){.ic:hover .tip{transform:translate(-50%,0)}}
 }
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}

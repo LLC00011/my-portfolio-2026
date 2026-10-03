@@ -33,11 +33,10 @@ window.addEventListener('pageshow', function (e) {
     return el.getBoundingClientRect().top - snap.getBoundingClientRect().top;
   }
   function update() {
-    var list = stops();
-    var last = list[list.length - 1];
-    atEnd = !!last && offset(last) <= 8;
+    // Same rule at every size: the end is the bottom of the scroll, which is also where the ring is full.
     var range = snap.scrollHeight - snap.clientHeight;
-    var progress = atEnd ? 1 : (range > 0 ? Math.min(1, Math.max(0, snap.scrollTop / range)) : 0);
+    atEnd = range > 0 ? snap.scrollTop >= range - 2 : true;
+    var progress = range > 0 ? Math.min(1, Math.max(0, snap.scrollTop / range)) : 1;
     bar.style.strokeDashoffset = String(CIRC * (1 - progress));
     go.classList.toggle('end', atEnd);
     wrap.classList.toggle('end', atEnd);
@@ -52,5 +51,6 @@ window.addEventListener('pageshow', function (e) {
   });
   snap.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+  window.addEventListener('load', update);
   update();
 })();

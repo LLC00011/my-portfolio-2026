@@ -1,83 +1,46 @@
-// Load projects from CMS
-async function loadProjects() {
-    try {
-        const response = await fetch('/projects/index.json');
-        const projects = await response.json();
-        
-        const projectsGrid = document.getElementById('projects-grid');
-        
-        projects.forEach(project => {
-            const card = createProjectCard(project);
-            projectsGrid.appendChild(card);
-        });
-    } catch (error) {
-        console.error('Error loading projects:', error);
-        // Fallback: create sample project cards
-        createSampleProjects();
-    }
-}
+/* Navigation pill. On case pages the arrow shows scroll progress as a ring that grows
+   clockwise. Until the last fold it scrolls to the next fold; at the last fold it
+   turns to point right, fills with the dark blue, shows the next case name and links to it. */
+(function () {
+  var snap = document.querySelector('.snap');
+  var go = document.getElementById('go');
+  var wrap = document.getElementById('go-wrap');
+  if (!snap || !go || !wrap) return;
 
-function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'project-card';
-    card.onclick = () => window.location.href = `project.html?slug=${project.slug}`;
-    
-    card.innerHTML = `
-        <div class="project-image-wrapper">
-            <img src="${project.thumbnail}" alt="${project.title}" class="project-image">
-            <div class="project-overlay">
-                <h2 class="project-card-title">${project.title}</h2>
-                <p class="project-card-description">${project.short_description}</p>
-                <a href="project.html?slug=${project.slug}" class="cta-button">SEE THE CASE</a>
-            </div>
-        </div>
-    `;
-    
-    return card;
-}
+  var bar = go.querySelector('.ring-bar');
+  var CIRC = 2 * Math.PI * 23;
+  var caseName = go.getAttribute('data-case');
+  var narrow = window.matchMedia('(max-width:960px),(max-aspect-ratio:1/1)');
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)');
+  var atEnd = false;
 
-function createSampleProjects() {
-    const sampleProjects = [
-        {
-            slug: 'pme-compass',
-            title: 'PME - COMPLEX DATA INTO MEANINGFUL INSIGHT',
-            short_description: 'Next-generation digital platform developed exclusively for PME, its artists, and key stakeholders.',
-            thumbnail: 'images/pme-thumbnail.jpg'
-        },
-        {
-            slug: 'posti',
-            title: 'POSTI - SMALL PARCEL TO DOOR',
-            short_description: 'Posti Small Parcel to door, a new delivery model for consumers in Finland.',
-            thumbnail: 'images/posti-thumbnail.jpg'
-        },
-        {
-            slug: 'sok',
-            title: 'SOK - S-KAUPAT, DELIVERY FULFILLMENT',
-            short_description: 'Grocery Delivery. A flagship feature connecting to production deployment, in close partnership with the development team.',
-            thumbnail: 'images/sok-thumbnail.jpg'
-        }
-    ];
-    
-    const projectsGrid = document.getElementById('projects-grid');
-    sampleProjects.forEach(project => {
-        const card = createProjectCard(project);
-        projectsGrid.appendChild(card);
-    });
-}
+  // Desktop: every fold is a stop. Mobile: a split fold is two stops (photo, then text).
+  function stops() {
+    var q = narrow.matches ? '.fold:not(.split), .split .photo, .split .info' : '.fold';
+    return Array.prototype.slice.call(snap.querySelectorAll(q));
+  }
+  function offset(el) {
+    return el.getBoundingClientRect().top - snap.getBoundingClientRect().top;
+  }
+  function update() {
+    var list = stops();
+    var last = list[list.length - 1];
+    atEnd = !!last && offset(last) <= 8;
+    var range = snap.scrollHeight - snap.clientHeight;
+    var progress = atEnd ? 1 : (range > 0 ? Math.min(1, Math.max(0, snap.scrollTop / range)) : 0);
+    bar.style.strokeDashoffset = String(CIRC * (1 - progress));
+    go.classList.toggle('end', atEnd);
+    wrap.classList.toggle('end', atEnd);
+    go.setAttribute('aria-label', atEnd ? 'Next case: ' + caseName : 'Next section');
+  }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', loadProjects);
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+  go.addEventListener('click', function (e) {
+    if (atEnd) return; // follow the link to the next case
+    e.preventDefault();
+    var target = stops().filter(function (el) { return offset(el) > 8; })[0];
+    if (target) target.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+  });
+  snap.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();

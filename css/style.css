@@ -159,6 +159,13 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .gowrap{animation:pill-grow-v .8s cubic-bezier(.2,.8,.2,1) .55s both}
 .snap > .hero:first-child img{animation:hero-in 1.2s cubic-bezier(.2,.8,.2,1) both}
 
+/* About me */
+.page.about{justify-content:flex-start;padding:calc(104 * var(--u)) calc(135 * var(--u)) calc(60 * var(--u)) calc(135 * var(--u))}
+.abt{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:calc(40 * var(--u)) calc(70 * var(--u));align-items:start}
+.abt .h{grid-column:1 / -1}
+.abt .lead{max-width:calc(480 * var(--u))}
+.abt .copy{max-width:calc(480 * var(--u))}
+
 /* Mobile: pages turn portrait (390 wide base), the photo opens the story as its own full-screen page. */
 @media (max-width:1179px),(max-aspect-ratio:1/1){
 body{--u:clamp(0.9px,calc(100vw / 390),1.2px)}
@@ -193,6 +200,8 @@ body{--u:clamp(0.9px,calc(100vw / 390),1.2px)}
 .dots{gap:calc(5 * var(--u))}
 .band.clip-posti{clip-path:polygon(0 22%,41% 22%,41% 0,100% 0,100% 100%,0 100%)}
 .band.clip-sok{clip-path:polygon(0 26%,48% 26%,48% 0,100% 0,100% 100%,0 100%)}
+.page.about{padding:calc(64 * var(--u)) calc(24 * var(--u)) calc(190 * var(--u))}
+.abt{grid-template-columns:minmax(0,1fr);gap:calc(28 * var(--u))}
 .pill{left:50%;top:auto;bottom:calc(16 * var(--pu));transform:translateX(-50%);flex-direction:row;width:auto;padding:calc(6 * var(--pu)) calc(16 * var(--pu)) calc(6 * var(--pu)) calc(6 * var(--pu));border-radius:calc(28 * var(--pu));gap:calc(14 * var(--pu))}
 .logo{width:calc(44 * var(--pu));height:calc(44 * var(--pu))}
 .split{display:block}
@@ -240,8 +249,6 @@ img.ab{width:100% !important}
 }
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.abt{position:relative;z-index:1;display:flex;flex-direction:column;gap:calc(12 * var(--u))}
-.abt .lead{max-width:calc(640 * var(--u))}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto !important;transition:none !important;animation:none !important}}
 
 /* Landscape phones: keep the text compact so more than a few lines fit on a short screen */

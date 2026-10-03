@@ -1,0 +1,10 @@
+# Refinement
+
+**# Pilleri**
+Nuoli elementin tulee indikoika sivun scrollauksen tilaa, eli missä kohtaa sisältöä milloinkin ollaan. Indikaattori kasvaa myötäpäivään rotatoiden sen mukaan miten alas sivulla edetään.
+Kun käyttäjä lopulta pääsee sivulla loppuun nuolen kääntyminen tapahtuu animoituna taustaväri muuttuu nykyiseen syvänsiniseen. samalla nuolen oikealle puolelle ilmestyy seuraavan case-esimerkin nimi esim. Posti
+Korvataan works title layers-ikonilla: https://iconmonstr.com/layer-multiple-alt-lined-svg/ ja näytetään hoveroidessa sivun nimi näytetään samalla logiikalla kuin case-esimerkki, Pillerin oikealle puolella.
+About me teksti, korvataan https://iconmonstr.com/user-6-svg/ ikonilla.
+
+**#Hovers**
+Korvataan alleviivaus tekstin dimmauksella kursorin ollessa klikattavan moduulin päällä. 

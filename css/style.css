@@ -171,6 +171,8 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .btn.dark{background:#0B0F1C;border-color:#0B0F1C;color:#FFFFFF}
 .btn:hover{opacity:.6}
 
+.hello{position:relative;z-index:1;margin:0 0 calc(32 * var(--u));max-width:calc(900 * var(--u));font-size:calc(20 * var(--u));font-weight:500;line-height:1.3}
+
 /* Mobile: pages turn portrait (390 wide base), the photo opens the story as its own full-screen page. */
 @media (max-width:1179px),(max-aspect-ratio:1/1){
 body{--u:clamp(0.9px,calc(100vw / 390),1.2px)}

@@ -10,7 +10,7 @@ Static portfolio site: a landing page with selected work (Works), three case pag
 | `pme.html`, `posti.html`, `sok.html` | Case pages, scroll one fold at a time |
 | `about.html` | About me (placeholder) |
 | `css/style.css` | All styles |
-| `js/main.js` | Navigation pill: next-fold arrow and next-case link |
+| `js/main.js` | Navigation pill: next-fold arrow, next-case link and arrow-key navigation on case pages |
 | `images/` | Images cropped from the slide exports |
 | `content pages/` | Source slide exports (not used by the site) |
 

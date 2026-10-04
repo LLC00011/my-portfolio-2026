@@ -49,6 +49,35 @@ window.addEventListener('pageshow', function (e) {
     var target = stops().filter(function (el) { return offset(el) > 8; })[0];
     if (target) target.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
   });
+  // Arrow keys: down/right go to the next fold (and, at the end, to the next case), up/left to the
+  // previous fold. Inside a fold taller than the screen the browser scrolls as usual.
+  function goTo(el) {
+    el.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var t = e.target;
+    if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+    var forward = e.key === 'ArrowDown' || e.key === 'ArrowRight';
+    var backward = e.key === 'ArrowUp' || e.key === 'ArrowLeft';
+    if (!forward && !backward) return;
+
+    var list = stops();
+    var index = 0;
+    list.forEach(function (el, k) { if (offset(el) <= 8) index = k; });
+    var current = list[index];
+
+    if (forward) {
+      if (atEnd) { e.preventDefault(); go.click(); return; }
+      var bottom = current.getBoundingClientRect().bottom - snap.getBoundingClientRect().top;
+      if (bottom > snap.clientHeight * 1.15) return;
+      if (list[index + 1]) { e.preventDefault(); goTo(list[index + 1]); }
+    } else {
+      if (offset(current) < -8) return;
+      if (index > 0) { e.preventDefault(); goTo(list[index - 1]); }
+    }
+  });
+
   snap.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   window.addEventListener('load', update);

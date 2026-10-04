@@ -13,7 +13,7 @@ a{color:inherit;text-decoration:none}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 50%;display:block}
 .info{flex:1 1 0;min-width:0;box-sizing:border-box;padding:calc(104 * var(--u)) calc(66 * var(--u)) calc(60 * var(--u)) calc(110 * var(--u));display:flex;flex-direction:column;gap:calc(36 * var(--u))}
 .head{display:flex;flex-direction:column;gap:calc(12 * var(--u))}
-.h{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.005em;line-height:0.95;margin:0;font-size:calc(52 * var(--u))}
+.h{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-0.001em;line-height:0.95;margin:0;font-size:calc(52 * var(--u))}
 .sans{font-family:'Inter',system-ui,sans-serif}
 .serif{font-family:'Source Serif 4',Georgia,serif}
 .lead{margin:0;font-size:calc(18 * var(--u));line-height:1.22;max-width:calc(400 * var(--u))}
@@ -171,7 +171,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .btn.dark{background:#0B0F1C;border-color:#0B0F1C;color:#FFFFFF}
 .btn:hover{opacity:.6}
 
-.hello{position:relative;z-index:1;margin:0 0 calc(36 * var(--u));max-width:calc(1020 * var(--u));font-size:calc(60 * var(--u));line-height:0.98}
+.hello{position:relative;z-index:1;margin:0 0 calc(36 * var(--u));font-size:calc(56 * var(--u));line-height:0.98}
 
 /* Mobile: pages turn portrait (390 wide base), the photo opens the story as its own full-screen page. */
 @media (max-width:1179px),(max-aspect-ratio:1/1){

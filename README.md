@@ -1,6 +1,6 @@
 # Portfolio 2026
 
-Static portfolio site: a landing page with selected work (Works), three case pages (PME Compass, Posti, SOK) and an About me page (placeholder).
+Static portfolio site: a landing page with selected work (Works), three case pages (PME Compass, Posti, SOK) and an About me page.
 
 ## Structure
 

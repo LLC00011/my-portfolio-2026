@@ -1,7 +1,7 @@
 /* Portfolio 2026. Every size is calc(N * var(--u)): 1 design px at a 1350 x 800 desktop page, scaled with the viewport width.
    Mobile (narrow or portrait) switches to a 390 px wide base. */
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#FAFAFA;--u:calc(100vw / 1350)}
+body{margin:0;background:#FAFAFA;--u:calc(100vw / 1350);--pu:clamp(0.9px,var(--u),1.15px);--pm:calc(18 * var(--pu))}
 a{color:inherit;text-decoration:none}
 
 /* Desktop: every fold is a 1350 x 800 page, all sizes scale with the viewport width (--u = 1 design px). */
@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}
 .dot.on{background:#0B0B14}
 
 /* Desktop: a 1350 x 800 page that scales with the viewport width (--u = 1 design px). */
-.page{position:relative;min-height:calc(800 * var(--u));overflow:hidden;background:#FAFAFA;color:#0B0B14;box-sizing:border-box;padding:0 calc(27 * var(--u)) 0 calc(92 * var(--u));display:flex;flex-direction:column;justify-content:center}
+.page{position:relative;min-height:calc(800 * var(--u));overflow:hidden;background:#FAFAFA;color:#0B0B14;box-sizing:border-box;padding:0 calc(27 * var(--u)) 0 calc(var(--pm) * 2 + 54 * var(--pu));display:flex;flex-direction:column;justify-content:center}
 .mark{position:absolute;left:calc(-170 * var(--u));top:calc(500 * var(--u));margin:0;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;font-size:calc(480 * var(--u));line-height:1;text-transform:uppercase;white-space:nowrap;color:#F0F0EE;pointer-events:none;user-select:none}
 .cards{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 calc(21 * var(--u));list-style:none;margin:0;padding:0}
 .card{display:flex;flex-direction:column;gap:calc(20 * var(--u));min-width:0}
@@ -61,7 +61,7 @@ a{color:inherit;text-decoration:none}
 .d{margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:calc(14.5 * var(--u));line-height:1.4;max-width:calc(380 * var(--u))}
 
 /* Navigation pill: vertical on the left edge of the fold, horizontal at the bottom on mobile. */
-.pill{--pu:clamp(0.9px,var(--u),1.15px);will-change:transform;position:fixed;z-index:10;left:calc(14 * var(--pu));top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:calc(12 * var(--pu));width:calc(54 * var(--pu));box-sizing:border-box;padding:calc(7 * var(--pu)) 0 calc(10 * var(--pu));border-radius:calc(27 * var(--pu));background:#FFFFFF;border:1px solid rgba(11,15,28,0.08);box-shadow:0 2px 16px rgba(11,15,28,0.14);color:#0B0F1C;font-family:'Inter',system-ui,sans-serif}
+.pill{will-change:transform;position:fixed;z-index:10;left:var(--pm);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:calc(12 * var(--pu));width:calc(54 * var(--pu));box-sizing:border-box;padding:calc(7 * var(--pu)) 0 calc(10 * var(--pu));border-radius:calc(27 * var(--pu));background:#FFFFFF;border:1px solid rgba(11,15,28,0.08);box-shadow:0 2px 16px rgba(11,15,28,0.14);color:#0B0F1C;font-family:'Inter',system-ui,sans-serif}
 .logo{display:block;flex:none;width:calc(40 * var(--pu));height:calc(40 * var(--pu));border-radius:50%;overflow:hidden}
 .logo svg{display:block;width:100%;height:100%}
 a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3px}

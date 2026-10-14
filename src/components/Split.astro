@@ -1,0 +1,34 @@
+---
+import Img from './Img.astro';
+
+// Image on one side, title, lead and copy on the other. Slots: title, lead and the default slot (copy).
+interface Props {
+  image?: string;
+  alt?: string;
+  pos?: string;
+  pw?: number;
+  rev?: boolean;
+  padR?: boolean;
+  narrow?: boolean | 's';
+  h1?: boolean;
+  infoStyle?: string;
+  placeholder?: string;
+}
+const { image, alt = '', pos = '50% 50%', pw = 57.3, rev = false, padR = false, narrow = false, h1 = false, infoStyle, placeholder } = Astro.props;
+const Tag = h1 ? 'h1' : 'h2';
+const titleClass = 'h' + (narrow === 's' ? ' narrow-s' : narrow ? ' narrow' : '');
+---
+<section class:list={['fold', 'split', { splitr: rev }]}>
+<div class="photo" style={`flex: 0 0 ${pw}%`}>
+{image
+  ? <Img name={image} alt={alt} style={`object-position: ${pos}`} sizes="(min-width: 1180px) 60vw, 100vw" />
+  : <div class="ph fill" role="img" aria-label={alt || 'Image placeholder'}>{placeholder}</div>}
+</div>
+<div class:list={['info', { 'pad-r': padR }]} style={infoStyle}>
+<div class="head">
+<Tag class={titleClass}><slot name="title" /></Tag>
+<p class="sans lead"><slot name="lead" /></p>
+</div>
+<div class="serif copy"><slot /></div>
+</div>
+</section>

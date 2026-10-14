@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Split from '../components/Split.astro';
+import Hd from '../components/Hd.astro';
+import Img from '../components/Img.astro';
+---
+<Layout title="Posti – Small parcel to door – Portfolio 2026" description="Posti Small Parcel to door, a new delivery model for consumers in Finland." current="works" next={{ href: "sok.html", label: "SOK" }}>
+<div class="snap">
+<Hero image="posti-hero" alt="Posti – Small parcel to door: a courier hands a parcel to a customer at the door" heading="Posti – Small parcel to door" />
+
+<Split image="posti-intro" alt="A smiling Posti courier holding a parcel" pos="35% 50%" narrow="s">
+<Fragment slot="title">Small parcel to door</Fragment>
+<Fragment slot="lead">Posti is offering a new way to receive smaller parcels by the doorstep. The new Small Parcel to Door is delivered by the mail carrier to the mailbox, mail slot or behind the door.</Fragment>
+<p>Posti developed and piloted a new delivery method, Paketti oven taakse (now rebranded as Pikkupaketti ovelle), in response to the growing demand from consumers and online retailers for more flexible, affordable, and convenient delivery options.</p>
+<p>The service allows small parcels to be delivered directly to the customer’s doorstep as part of Posti’s regular daytime delivery, without the recipient needing to be at home.</p>
+<p>It fills the gap between parcel-lockers and traditional home deliveries – offering a lighter, faster, and more affordable alternative.</p>
+</Split>
+
+<section class="fold">
+<div class="pl-cols">
+<div class="pl-text">
+<h2 class="h">Pilot plan and timeline</h2>
+<div style="display:flex;flex-direction:column;gap:calc(32 * var(--u))">
+<p class="sans lead" style="margin:0">The work extended across early customer journey mapping to prototyping and testing, combining research, co-creation, and strategic design. In my role as Service designer I planned and conducted all the customer experience related tasks.</p>
+<div class="serif copy" style="max-width:none">
+<p>During the pilot of the new delivery method, I designed the measurement framework and led the engagement of both consumers and business clients who chose to use the service.</p>
+<p>The development process was highly customer-driven, combining qualitative and quantitative research methods. It included 28 consumer interviews, a pilot survey with 45 respondents, two large-scale Testaamo surveys reaching over 1,900 participants, seven interviews with online retailers, and more than 50 co-creation sessions with retail partners.</p>
+<p>Insights from 11 employee surveys and 7 field observation rounds added valuable operational perspectives, ensuring the service was refined and validated based on real user experience.</p>
+</div>
+</div>
+</div>
+<div class="pl-vis">
+<Img name="posti-pilot" alt="Pilot measurement plan (in Finnish): activities for online stores, consumers and operations before, during and after the pilot" sizes="(min-width: 1180px) 55vw, 100vw" />
+<div class="stats3">
+<div class="stat"><div class="big">28</div><div class="lab">Consumer interviews</div></div>
+<div class="stat"><div class="big">2</div><div class="lab">Testaamo surveys</div><div class="sub">N=1300 and N=600</div></div>
+<div class="stat"><div class="big">7</div><div class="lab">Field observations</div><div class="sub">N=50</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="fold">
+<Hd>
+<Fragment slot="title">How the service works</Fragment>
+The customer journey of the Pikkupaketti ovelle delivery service from online purchase to final doorstep delivery. It shows each step of the process and how customers are kept informed through OmaPosti, email, and text message notifications.
+</Hd>
+<Img name="posti-journey" alt="Pikkupaketti ovelle customer journey: six steps from the customer placing an order to the parcel being taken out for delivery, with the app tracking cards for each stage" class="band" style="left:calc(54 * var(--u));width:calc(1190 * var(--u));aspect-ratio:1765/685;top:calc(280 * var(--u))" />
+</section>
+
+<section class="fold">
+<Hd style="max-width:calc(560 * var(--u))">
+<Fragment slot="title">Clear omnichannel communication</Fragment>
+It was clear from the beginning that a service with high safety expectations must communicate consistently and perhaps even more than seems necessary throughout the entire process.
+</Hd>
+<Img name="posti-phones" alt="Five mobile screens of the Posti tracking experience as the parcel moves from waiting to delivered" class="band clip-posti" style="left:calc(27 * var(--u));width:calc(1293 * var(--u));aspect-ratio:1915/866;bottom:0" />
+<div class="patch" style="left:calc(128 * var(--u));top:calc(214 * var(--u));width:calc(450 * var(--u));height:calc(138 * var(--u))"></div>
+</section>
+
+<section class="fold res">
+<Hd>
+<Fragment slot="title">Results and impact</Fragment>
+Results and business impact from the pilot.
+</Hd>
+<Img name="posti-res-door" alt="A customer smiling as she receives a parcel at her door" class="ab pic-img" style="left:calc(0.0 * var(--u));top:calc(254.6 * var(--u));width:calc(333.5 * var(--u));aspect-ratio:494/388" sizes="(min-width: 1180px) 25vw, 100vw" />
+<div class="ab q" style="left:calc(356.4 * var(--u));top:calc(257.4 * var(--u));width:calc(182.2 * var(--u))"><p>“The best thing ever is not having to be on duty when someone comes to your door.”</p><p><b>Customer feedback from<br>the delivery pilot</b></p></div>
+<div class="ab stat" style="left:calc(686.5 * var(--u));top:calc(255.3 * var(--u));width:calc(197.8 * var(--u));height:calc(130.1 * var(--u))"><div class="big">+50</div><div class="lab">Online stores</div></div>
+<div class="ab stat" style="left:calc(420.5 * var(--u));top:calc(443.7 * var(--u));width:calc(197.8 * var(--u));height:calc(129.4 * var(--u))"><div class="big">4.28</div><div class="lab">CSAT</div><div class="sub">N=50, Current 4.48</div></div>
+<div class="ab stat" style="left:calc(135.0 * var(--u));top:calc(573.9 * var(--u));width:calc(197.8 * var(--u));height:calc(130.1 * var(--u))"><div class="big">278</div><div class="lab">Parcels in total</div></div>
+<div class="ab q" style="left:calc(1015.9 * var(--u));top:calc(200.5 * var(--u));width:calc(202.5 * var(--u))"><p>“There can be any amount of new parcel volume, no effect for my own work. It will be great if there is more to deliver.”</p><p><b>Posti employee</b></p></div>
+<Img name="posti-res-bike" alt="A Posti courier cycling along a path between apartment blocks" class="ab pic-img" style="left:calc(686.5 * var(--u));top:calc(498.5 * var(--u));width:calc(305.8 * var(--u));aspect-ratio:453/382" sizes="(min-width: 1180px) 25vw, 100vw" />
+<div class="ab q" style="left:calc(1015.9 * var(--u));top:calc(498.5 * var(--u));width:calc(280 * var(--u))"><p>“It’s just a regular parcel. Sometimes delivery is little difficult due to its size because we have to sort it with other mail together and carry it along with other mails.”</p><p><b>Posti employee</b></p></div>
+</section>
+
+</div>
+</Layout>

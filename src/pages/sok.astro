@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubstitutionCase from '../components/SubstitutionCase.astro';
+import Hero from '../components/Hero.astro';
+import Split from '../components/Split.astro';
+import Hd from '../components/Hd.astro';
+import Img from '../components/Img.astro';
+// The "Better substitutions" mini-case is built but hidden for now. Set to true to show it.
+const showSubstitutionCase = false;
+---
+<Layout title="SOK – S-Kaupat, delivery fulfilment – Portfolio 2026" description="The full lifecycle from early feature concepting to production deployment for S-Kaupat delivery fulfilment." current="works" next={{ href: "index.html", label: "Works" }}>
+<div class="snap">
+<Hero image="sok-hero" alt="SOK – S-Kaupat, delivery fulfilment: collage of store pickers, a delivery robot, a grocery bag, a family unloading groceries and a customer ordering on her phone" heading="SOK – S-Kaupat, delivery fulfilment" />
+
+<Split image="sok-intro" alt="A store picker in a Prisma vest scanning a bag of herbs on a handheld device" pos="30% 50%" narrow>
+<Fragment slot="title">Designing fulfillment experience</Fragment>
+<Fragment slot="lead">My work in S-kaupat spans the full lifecycle from early feature concepting to production deployment, in close partnership with the development team. My role as product designer is a key role in driving customer value and ensuring a seamless end-to-end delivery experience for employees and customers</Fragment>
+<p>Working fully as an interim Product designer for the Picking team, established in early August through the merger of the former Store-tech and CFC/MFC teams. While a significant portion of my time has been dedicated to improving the in-store picking flow and the broader pickup experience, I also work closely with the Home Delivery team to enhance the pickup experience for one-hour deliveries and Robot orders.</p>
+<p>I am also part of the core team in a major initiative aimed at harmonising in-store picking operations at the co-op level, ensuring alignment and consistency across the entire webstore operating model.</p>
+</Split>
+
+{showSubstitutionCase && <SubstitutionCase />}
+
+<section class="fold">
+<Hd style="max-width:calc(760 * var(--u))">
+<Fragment slot="title">Selection browsing</Fragment>
+Both Quick delivery options, Wolt (One hour delivery) and Robot delivery, needed the possibility to browse store selection easily before the delivery model was open to order. I developed a concept that was scalable for both services with the same logic and look and feel.
+</Hd>
+<Img name="sok-browse" alt="Four Alepa app screens: delivery method selection, a delivery options list, a one-hour delivery unavailable dialog and the store front page" class="band clip-sok" style="left:calc(108 * var(--u));width:calc(1208 * var(--u));aspect-ratio:1790/986;bottom:0" />
+<div class="patch" style="left:calc(130 * var(--u));top:calc(160 * var(--u));width:calc(560 * var(--u));height:calc(150 * var(--u))"></div>
+</section>
+
+<section class="fold">
+<Hd style="max-width:calc(760 * var(--u))">
+<Fragment slot="title">Utilising saved address</Fragment>
+Both Quick delivery options, Wolt (One hour delivery) and Robot delivery, needed the possibility to browse store selection easily before the delivery model was open to order. I developed a concept that was scalable for both services with the same logic and look and feel.
+</Hd>
+<Img name="sok-address" alt="Five steps of the delivery address search in the S-kaupat app: empty field, recent addresses, typing, suggestions and a selected address" class="band" style="left:calc(20 * var(--u));width:calc(1299 * var(--u));aspect-ratio:1925/626;bottom:0" />
+</section>
+
+<Split image="sok-data" alt="Mobile screens with weekly and daily picking performance summaries and a picker leaderboard" pos="40% 50%" pw={58.9} rev padR narrow>
+<Fragment slot="title">New and improved picking data</Fragment>
+<Fragment slot="lead">As part of a major initiative focused on improving in-store picking operations, we concepted a completely new way of presenting pickers’ daily and weekly performance metrics. The aim was to make the numbers clear and directly supportive of day-to-day execution on the shop floor.</Fragment>
+<p>The starting point was that pickers could see weekly picking data, but the numbers and the logic behind them were not understandable or actionable in day-to-day work. During H1/2025, we gathered feedback on the existing views and used that input to drive the key design decisions.</p>
+<p>We then launched new daily and weekly data views in beta across 10 stores, and collected structured feedback via an in-device survey on the Keräytin.</p>
+<p>The outcome has been clearly positive: the new views are perceived as a significant improvement compared to the previous ones, and they support daily performance management more effectively.</p>
+</Split>
+
+<Split image="sok-boost" alt="Three Android phones showing the round-ending feedback view in green, yellow and pink" pos="50% 50%" pw={64.5} narrow infoStyle="padding-left:calc(40 * var(--u))">
+<Fragment slot="title">Boost for the picking efficiency</Fragment>
+<Fragment slot="lead">Continuing with the Similar to Same theme, there was also a need to coach pickers to do their job at the right pace. For that we concepted and tested new ways of presenting data after each picking round.</Fragment>
+<p>Tested through interviews with the store pickers the round ending data view evolved to its current state. Presented information was found relative and quick to comprehend.</p>
+</Split>
+
+<section class="fold res">
+<Hd>
+<Fragment slot="title">Results and impact</Fragment>
+Results and feedback from the store employees
+</Hd>
+<Img name="sok-res-left" alt="Illustration of a shopper holding a phone with the weekly summary and a carton of milk" class="ab pic-img" style="left:calc(27.0 * var(--u));top:calc(242.5 * var(--u));width:calc(309.2 * var(--u));aspect-ratio:458/457" sizes="(min-width: 1180px) 25vw, 100vw" />
+<div class="ab q" style="left:calc(356.4 * var(--u));top:calc(243.9 * var(--u));width:calc(182.2 * var(--u))"><p>The weekly summary clearly shows the collection figures for the week. A clear summary of the entire week.</p><p><b>Feedback from the data<br>view survey</b></p></div>
+<div class="ab stat" style="left:calc(793.8 * var(--u));top:calc(191.3 * var(--u));width:calc(198.5 * var(--u));height:calc(130.1 * var(--u))"><div class="big">+90</div><div class="lab">Stores</div></div>
+<div class="ab stat" style="left:calc(466.4 * var(--u));top:calc(580.3 * var(--u));width:calc(197.8 * var(--u));height:calc(130.1 * var(--u))"><div class="big">119</div><div class="lab">Answers in total</div></div>
+<Img name="sok-res-char" alt="Illustration of a person in a green hoodie holding the picker device" class="ab pic-img" style="left:calc(715.5 * var(--u));top:calc(375.5 * var(--u));width:calc(266.6 * var(--u));aspect-ratio:395/538" sizes="(min-width: 1180px) 25vw, 100vw" />
+<div class="ab q" style="left:calc(1014.5 * var(--u));top:calc(502.0 * var(--u));width:calc(202.5 * var(--u))"><p>Very illustrative. Supports learning. Able to detect differences between rounds to reinforce learning. Also good that you can directly see the number of collecting rounds.</p><p><b>Feedback from the data view<br>survey</b></p></div>
+</section>
+
+</div>
+</Layout>

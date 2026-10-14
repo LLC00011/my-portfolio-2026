@@ -1,0 +1,83 @@
+[
+  {
+    "cls": "g-mar",
+    "label": "MAR 2023",
+    "cols": "c5",
+    "steps": [
+      {
+        "no": 1,
+        "title": "Ecosystem & Trend Analysis",
+        "text": "mapped the Nordic music industry landscape, emerging digital trends, and opportunities for data democratization.",
+        "level": 2
+      },
+      {
+        "no": 2,
+        "title": "Service Vision 1.0",
+        "text": "defined the initial hypothesis: simplifying complex streaming and financial data for artists.",
+        "level": 4
+      },
+      {
+        "no": 3,
+        "title": "Artist & Stakeholder Interviews",
+        "text": "uncovered real user pain points, needs, and attitudes toward data and career management.",
+        "level": 3
+      },
+      {
+        "no": 4,
+        "title": "Artist Profiles & Design Drivers",
+        "text": "identified four user archetypes and translated insights into key design principles.",
+        "level": 4
+      },
+      {
+        "no": 5,
+        "title": "Opportunity Prioritization",
+        "text": "outlined strategic directions balancing artist needs and business feasibility.",
+        "level": 5
+      }
+    ]
+  },
+  {
+    "cls": "g-jun",
+    "label": "JUNE 2023",
+    "cols": "c3",
+    "steps": [
+      {
+        "no": 6,
+        "title": "Updated Service Vision",
+        "text": "reframed the concept around transparency, wellbeing, and data ownership.",
+        "level": 5
+      },
+      {
+        "no": 7,
+        "title": "Cost–Benefit & Scalability Assessment",
+        "text": "analyzed business potential and platform scalability across user groups.",
+        "level": 4
+      },
+      {
+        "no": 8,
+        "title": "Concept & Prototype Design",
+        "text": "co-created wireframes and data dashboards for both artist and admin views.",
+        "level": 5
+      }
+    ]
+  },
+  {
+    "cls": "g-aug",
+    "label": "AUG 2023",
+    "cols": "c2",
+    "steps": [
+      {
+        "no": 9,
+        "title": "Prototype Testing",
+        "text": "gathered feedback from artists and PME teams to refine usability, tone, and information hierarchy.",
+        "level": 3
+      },
+      {
+        "no": 10,
+        "title": "Development Sprint Planning",
+        "text": "defined roadmap for MVP implementation and long-term evolution of the platform.",
+        "level": 5
+      }
+    ]
+  }
+]

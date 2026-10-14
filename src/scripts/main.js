@@ -29,9 +29,6 @@ window.addEventListener('pageshow', function (e) {
     var q = narrow.matches ? '.fold:not(.split), .split .photo, .split .info' : '.fold';
     return Array.prototype.slice.call(snap.querySelectorAll(q));
   }
-  function offset(el) {
-    return el.getBoundingClientRect().top - snap.getBoundingClientRect().top;
-  }
   function update() {
     // Same rule at every size: the end is the bottom of the scroll, which is also where the ring is full.
     var range = snap.scrollHeight - snap.clientHeight;
@@ -43,17 +40,93 @@ window.addEventListener('pageshow', function (e) {
     go.setAttribute('aria-label', atEnd ? 'Next case: ' + caseName : 'Next section');
   }
 
-  go.addEventListener('click', function (e) {
-    if (atEnd) return; // follow the link to the next case
-    e.preventDefault();
-    var target = stops().filter(function (el) { return offset(el) > 8; })[0];
-    if (target) target.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
-  });
-  // Arrow keys: down/right go to the next fold (and, at the end, to the next case), up/left to the
-  // previous fold. Inside a fold taller than the screen the browser scrolls as usual.
-  function goTo(el) {
-    el.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+  // --- Moving between folds (arrow button and arrow keys) ---------------------------------------
+  // A fold can be taller than the window (folds keep a 1350:800 shape, windows are usually wider), so
+  // inside a fold we page through it first and only then move to the next one. The scroll is animated
+  // by hand with snapping switched off meanwhile: with mandatory snapping, the browser pulls a smooth
+  // scroll that ends inside a tall fold back to the start of that fold.
+  var frame = null;
+  var target = null;
+
+  function extent(el) {
+    var r = el.getBoundingClientRect();
+    var base = snap.getBoundingClientRect().top - snap.scrollTop;
+    return { top: r.top - base, bottom: r.bottom - base };
   }
+  function stopAnimation() {
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = null;
+    target = null;
+    snap.style.scrollSnapType = '';
+  }
+  function animateTo(top) {
+    var max = snap.scrollHeight - snap.clientHeight;
+    var to = Math.max(0, Math.min(max, top));
+    var from = snap.scrollTop;
+    if (frame !== null) cancelAnimationFrame(frame);
+    target = to;
+    snap.style.scrollSnapType = 'none';
+    var distance = to - from;
+    var duration = reduce.matches ? 0 : Math.min(900, 350 + Math.abs(distance) * 0.35);
+    var start = performance.now();
+    function tick(now) {
+      var t = duration === 0 ? 1 : Math.min(1, (now - start) / duration);
+      var eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      snap.scrollTop = from + distance * eased;
+      if (t < 1) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        frame = null;
+        target = null;
+        snap.style.scrollSnapType = '';
+      }
+    }
+    frame = requestAnimationFrame(tick);
+  }
+  // Wheel or touch hands the scroll back to the browser.
+  snap.addEventListener('wheel', stopAnimation, { passive: true });
+  snap.addEventListener('touchstart', stopAnimation, { passive: true });
+
+  // Returns false when there is nothing further forward (we are at the end of the page).
+  function moveForward() {
+    var view = snap.clientHeight;
+    var pos = target !== null ? target : snap.scrollTop;
+    if (pos >= snap.scrollHeight - view - 2) return false;
+    var list = stops();
+    var index = 0;
+    list.forEach(function (el, k) { if (extent(el).top <= pos + 8) index = k; });
+    var current = extent(list[index]);
+    if (current.bottom > pos + view + 8) {
+      // The fold continues below the window: show the rest of it first.
+      animateTo(pos + Math.min(current.bottom - (pos + view), view * 0.9));
+    } else if (list[index + 1]) {
+      animateTo(extent(list[index + 1]).top);
+    }
+    return true;
+  }
+  function moveBackward() {
+    var view = snap.clientHeight;
+    var pos = target !== null ? target : snap.scrollTop;
+    var list = stops();
+    var index = 0;
+    list.forEach(function (el, k) { if (extent(el).top <= pos + 8) index = k; });
+    var current = extent(list[index]);
+    if (current.top < pos - 8) {
+      // Part way down a tall fold: go back up inside it first.
+      animateTo(pos - Math.min(pos - current.top, view * 0.9));
+    } else if (index > 0) {
+      var previous = extent(list[index - 1]);
+      // A previous fold taller than the window is entered at its lower part.
+      animateTo(previous.bottom - previous.top > view + 8 ? previous.bottom - view : previous.top);
+    }
+  }
+
+  // The arrow button moves forward; at the end of the page it is a plain link to the next case.
+  go.addEventListener('click', function (e) {
+    if (moveForward()) e.preventDefault();
+  });
+
+  // Arrow keys: down/right forward (from the last fold: to the next case), up/left backward.
   document.addEventListener('keydown', function (e) {
     if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
     var t = e.target;
@@ -61,20 +134,11 @@ window.addEventListener('pageshow', function (e) {
     var forward = e.key === 'ArrowDown' || e.key === 'ArrowRight';
     var backward = e.key === 'ArrowUp' || e.key === 'ArrowLeft';
     if (!forward && !backward) return;
-
-    var list = stops();
-    var index = 0;
-    list.forEach(function (el, k) { if (offset(el) <= 8) index = k; });
-    var current = list[index];
-
+    e.preventDefault();
     if (forward) {
-      if (atEnd) { e.preventDefault(); go.click(); return; }
-      var bottom = current.getBoundingClientRect().bottom - snap.getBoundingClientRect().top;
-      if (bottom > snap.clientHeight * 1.15) return;
-      if (list[index + 1]) { e.preventDefault(); goTo(list[index + 1]); }
+      if (!moveForward()) go.click();
     } else {
-      if (offset(current) < -8) return;
-      if (index > 0) { e.preventDefault(); goTo(list[index - 1]); }
+      moveBackward();
     }
   });
 

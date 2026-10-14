@@ -1,0 +1,10 @@
+---
+// Fold header: headline and lead. The lead is the default slot, the headline is the title slot.
+interface Props { style?: string; h1?: boolean }
+const { style, h1 = false } = Astro.props;
+const Tag = h1 ? 'h1' : 'h2';
+---
+<div class="hd" style={style}>
+<Tag class="h"><slot name="title" /></Tag>
+<p class="sans lead"><slot /></p>
+</div>

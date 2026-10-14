@@ -1,0 +1,19 @@
+---
+// Project timeline: groups of numbered steps with a 0-5 activity rating shown as dots.
+interface Step { no: number; title: string; text: string; level: number }
+interface Group { cls: string; label: string; cols: string; steps: Step[] }
+interface Props { groups: Group[] }
+const { groups } = Astro.props;
+---
+<div class="tl">
+{groups.map((g) => (
+<div class={`group ${g.cls}`}>
+<div class="tagline"><span class="tag">{g.label}</span><span class="line"></span></div>
+<div class={`items ${g.cols}`}>
+{g.steps.map((s) => (
+<div class="step serif"><span class="num">{s.no}.</span><div class="step-body"><span><b>{s.title}</b> – {s.text}</span><span class="dots" role="img" aria-label={`${s.level} out of 5`}>{[1, 2, 3, 4, 5].map((i) => <span class={i <= s.level ? 'dot on' : 'dot'}></span>)}</span></div></div>
+))}
+</div>
+</div>
+))}
+</div>

@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+
+// Every image goes through Astro's image pipeline: WebP, several widths and a srcset.
+const all = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{jpg,png}');
+
+interface Props {
+  name: string;
+  alt: string;
+  class?: string;
+  style?: string;
+  sizes?: string;
+  eager?: boolean;
+  widths?: number[];
+}
+
+const { name, alt, sizes = '100vw', eager = false, widths = [640, 1280, 1920, 2560], ...rest } = Astro.props;
+const load = all[`../assets/${name}.jpg`] ?? all[`../assets/${name}.png`];
+if (!load) throw new Error(`Image not found: ${name}`);
+const src = (await load()).default;
+const useWidths = [...widths.filter((w) => w < src.width), src.width];
+---
+<Image
+  src={src}
+  alt={alt}
+  widths={useWidths}
+  sizes={sizes}
+  format="webp"
+  loading={eager ? 'eager' : 'lazy'}
+  fetchpriority={eager ? 'high' : undefined}
+  {...rest}
+/>

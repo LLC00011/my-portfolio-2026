@@ -1,0 +1,11 @@
+---
+import Img from './Img.astro';
+
+// First fold of a case page: the full-bleed hero image, with the heading for screen readers.
+interface Props { image: string; alt: string; heading: string }
+const { image, alt, heading } = Astro.props;
+---
+<section class="fold hero">
+<h1 class="sr-only">{heading}</h1>
+<Img name={image} alt={alt} eager />
+</section>

@@ -173,7 +173,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .btn.dark{background:#0B0F1C;border-color:#0B0F1C;color:#FFFFFF}
 .btn:hover{opacity:.6}
 
-.hello{position:relative;z-index:1;margin:0 0 calc(36 * var(--u));font-size:calc(56 * var(--u));line-height:0.98}
+.hello{position:relative;z-index:1;margin:0 0 calc(36 * var(--u));font-size:calc(52 * var(--u));line-height:0.98}
 
 /* SOK mini-case helpers: placeholder image, 1-2-1 timeline row, row padding, four stats */
 .ph.fill{background:#E4E3DE}

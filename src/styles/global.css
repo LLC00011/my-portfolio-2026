@@ -349,6 +349,7 @@ img.ab{width:100% !important}
 .tbr:only-child::after{display:none}
 .tree .leaf{width:calc(134 * var(--u));box-sizing:border-box}
 .tb-main > .tbr > .tn-w > .tn{width:calc(100 * var(--u));box-sizing:border-box}
+.tb-main > .tbr > .tn-w > .tn{background:repeating-linear-gradient(45deg,rgba(11,11,20,0.2) 0 1px,#FAFAFA 1px 6px);font-weight:500}
 .tbr.lf{padding-right:var(--c)}
 .rt,.out{position:absolute;right:0;top:0;bottom:0}
 .rt{width:var(--c)}

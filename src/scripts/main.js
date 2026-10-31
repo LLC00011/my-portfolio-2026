@@ -15,6 +15,7 @@ window.addEventListener('pageshow', function (e) {
   var snap = document.querySelector('.snap');
   var go = document.getElementById('go');
   var wrap = document.getElementById('go-wrap');
+  var prevWrap = document.getElementById('prev-wrap');
   if (!snap || !go || !wrap) return;
 
   var bar = go.querySelector('.ring-bar');
@@ -43,6 +44,7 @@ window.addEventListener('pageshow', function (e) {
     bar.style.strokeDashoffset = String(CIRC * (1 - progress));
     go.classList.toggle('end', atEnd);
     wrap.classList.toggle('end', atEnd);
+    if (prevWrap) prevWrap.classList.toggle('end', atEnd);
     go.setAttribute('aria-label', atEnd ? 'Next case: ' + caseName : 'Next section');
   }
 

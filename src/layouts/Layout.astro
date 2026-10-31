@@ -7,10 +7,11 @@ interface Props {
   description: string;
   current: 'works' | 'about';
   next?: { href: string; label: string };
+  prev?: { href: string; label: string };
   lang?: string;
   noindex?: boolean;
 }
-const { title, description, current, next, lang = 'en', noindex = false } = Astro.props;
+const { title, description, current, next, prev, lang = 'en', noindex = false } = Astro.props;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -27,7 +28,7 @@ const { title, description, current, next, lang = 'en', noindex = false } = Astr
 </head>
 <body>
 <slot />
-<Pill current={current} next={next} />
+<Pill current={current} next={next} prev={prev} />
 <script>
   import '../scripts/main.js';
 </script>

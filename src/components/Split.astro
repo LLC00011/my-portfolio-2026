@@ -1,7 +1,8 @@
 ---
 import Img from './Img.astro';
 
-// Image on one side, title, lead and copy on the other. Slots: title, lead and the default slot (copy).
+// Image on one side, title, lead and copy on the other. Slots: title, lead, the default slot (copy) and an optional
+// visual slot that stands in for the image (a diagram on a grey ground).
 interface Props {
   image?: string;
   alt?: string;
@@ -22,7 +23,9 @@ const titleClass = 'h' + (narrow === 's' ? ' narrow-s' : narrow ? ' narrow' : ''
 <div class="photo" style={`flex: 0 0 ${pw}%`}>
 {image
   ? <Img name={image} alt={alt} style={`object-position: ${pos}`} sizes="(min-width: 1180px) 60vw, 100vw" />
-  : <div class="ph fill" role="img" aria-label={alt || 'Image placeholder'}>{placeholder}</div>}
+  : Astro.slots.has('visual')
+    ? <div class="vis"><slot name="visual" /></div>
+    : <div class="ph fill" role="img" aria-label={alt || 'Image placeholder'}>{placeholder}</div>}
 </div>
 <div class:list={['info', { 'pad-r': padR }]} style={infoStyle}>
 <div class="head">

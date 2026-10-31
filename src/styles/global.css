@@ -335,3 +335,27 @@ img.ab{width:100% !important}
 .fd .pd-tall{max-width:none}
 .pd-svg .fd-i{font-size:12px}
 }
+
+/* Diagram on a grey ground in a split fold, and the scope tree (ScopeTree.astro) */
+.photo .vis{position:absolute;inset:0;background:#E4E3DE;display:flex;align-items:center;justify-content:center;padding:calc(40 * var(--u))}
+.tree{display:flex;align-items:center;font-family:'Inter',system-ui,sans-serif;font-size:calc(14 * var(--u));line-height:1.2;color:#0B0B14}
+.tree .tn{border:1px solid #0B0B14;background:#FAFAFA;padding:calc(8 * var(--u)) calc(14 * var(--u));white-space:nowrap}
+.tree .root{background:#0B0B14;color:#FAFAFA;font-weight:700}
+.tn-w{position:relative;flex:none;padding-right:calc(28 * var(--u))}
+.tn-w.has::after{content:"";position:absolute;right:0;top:50%;width:calc(28 * var(--u));border-top:1px solid #0B0B14}
+.tb{display:flex;flex-direction:column}
+.tbr{position:relative;display:flex;align-items:center;padding:calc(5 * var(--u)) 0 calc(5 * var(--u)) calc(28 * var(--u))}
+.tb-main > .tbr{padding-top:calc(14 * var(--u));padding-bottom:calc(14 * var(--u))}
+.tbr::before{content:"";position:absolute;left:0;top:50%;width:calc(28 * var(--u));border-top:1px solid #0B0B14}
+.tbr::after{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #0B0B14}
+.tbr:first-child::after{top:50%}
+.tbr:last-child::after{bottom:50%}
+.tbr:only-child::after{display:none}
+@media (max-width:1179px),(max-aspect-ratio:1/1){
+.photo .vis{padding:calc(24 * var(--u)) calc(16 * var(--u)) calc(110 * var(--u))}
+.tree{font-size:calc(13 * var(--u))}
+.tree .tn{padding:calc(7 * var(--u)) calc(9 * var(--u))}
+.tn-w{padding-right:calc(14 * var(--u))}
+.tn-w.has::after,.tbr::before{width:calc(14 * var(--u))}
+.tbr{padding-left:calc(14 * var(--u))}
+}

@@ -6,12 +6,19 @@ import Hd from '../components/Hd.astro';
 import Timeline from '../components/Timeline.astro';
 import ProcessDiagram from '../components/ProcessDiagram.astro';
 import FindingsDiagram from '../components/FindingsDiagram.astro';
+import ScopeTree from '../components/ScopeTree.astro';
 
 // DRAFT. Not linked from the Works index and hidden from search engines (noindex).
 // The project was under NDA: the client is anonymised ("Nordic insurer"), but check the client's publishing permission before this goes public.
 //  - No company-specific ratings, no client self-assessment and no market leaders' names, in the text or in images.
 //  - Good images: the evaluation framework without values, the process diagram, an anonymised country comparison structure.
 // All images are grey placeholders until the visuals are ready.
+const scope = [
+  { label: 'Markkinat', leaves: ['Suomi', 'Ruotsi', 'Norja', 'Tanska'] },
+  { label: 'Fokus', leaves: ['Henkilöasiakkaat', 'Autovakuutus'] },
+  { label: 'Kanavat', leaves: ['Mobiilisovellus', 'Verkkopalvelu'] },
+  { label: 'Vaiheet', leaves: ['Ostaminen', 'Hallinta', 'Vahinkoilmoitus'] },
+];
 const steps = [
   { cls: 'g-bm', label: 'LOKA–JOULUKUU 2024', cols: 'c5', steps: [
     { no: 1, title: 'Kick-off ja rajaus', text: 'Yhtiön sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.' },
@@ -26,7 +33,8 @@ const steps = [
 <div class="snap">
 <Hero alt="Pohjoismainen vakuutusyhtiö – Digitaalisten kanavien kilpailijabenchmarkkaus" heading="Pohjoismainen vakuutusyhtiö – Digitaalisten kanavien kilpailijabenchmarkkaus" placeholder="Hero-kuva: tulossa" />
 
-<Split alt="Kuvan paikka: arviointikehikko ilman arvoja" placeholder="Kuva: arviointikehikko ilman arvoja" narrow>
+<Split narrow>
+<Fragment slot="visual"><ScopeTree label="Benchmarkin rajaus: markkinat Suomi, Ruotsi, Norja ja Tanska; fokus henkilöasiakkaat ja autovakuutus; kanavat mobiilisovellus ja verkkopalvelu; vaiheet ostaminen, hallinta ja vahinkoilmoitus" root="Benchmark" branches={scope} /></Fragment>
 <Fragment slot="title">Pohjoismainen benchmark</Fragment>
 <Fragment slot="lead">Rakensimme pohjoismaiselle vakuutusyhtiölle puolueettoman kuvan siitä, missä sen digitaaliset palvelut seisovat pohjoismaisessa kilpailussa.</Fragment>
 <p>Kahdessa kuukaudessa vertasimme kymmentä vakuuttajaa neljällä markkinalla samalla kehikolla ja kokosimme tuloksista johdolle pohjan, joka ohjasi yhtiön seuraavan vuoden kehitysbudjetteja.</p>

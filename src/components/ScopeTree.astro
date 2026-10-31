@@ -1,0 +1,19 @@
+---
+// Scope tree: what the benchmark covered, branching from the benchmark to markets, focus, channels and journey phases.
+interface Branch { label: string; leaves: string[] }
+interface Props { label: string; root: string; branches: Branch[] }
+const { label, root, branches } = Astro.props;
+---
+<div class="tree" role="img" aria-label={label}>
+<div class="tn-w has"><div class="tn root">{root}</div></div>
+<div class="tb tb-main">
+{branches.map((b) => (
+<div class="tbr">
+<div class="tn-w has"><div class="tn">{b.label}</div></div>
+<div class="tb">
+{b.leaves.map((l) => <div class="tbr"><div class="tn leaf">{l}</div></div>)}
+</div>
+</div>
+))}
+</div>
+</div>

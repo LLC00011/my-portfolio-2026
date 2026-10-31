@@ -396,7 +396,3 @@ img.ab{width:100% !important}
 .impact{flex-direction:column;gap:calc(8 * var(--u));padding:calc(16 * var(--u))}
 .impact p{font-size:calc(16 * var(--u))}
 }
-/* Longer fold: content decides the height, with room below the last block (desktop) */
-@media (min-width:1180px) and (min-aspect-ratio:1/1){
-.fold.long > .rowpad:last-child{padding-bottom:calc(96 * var(--u))}
-}

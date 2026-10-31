@@ -431,7 +431,7 @@ img.ab{width:100% !important}
 
 /* Footer: 45 px, white, hairline on top. On case pages it ends the scrolling area and is its own snap stop. */
 body > .page{flex:1 0 auto}
-.site-footer{flex:none;box-sizing:border-box;height:45px;margin-top:auto;display:flex;align-items:center;padding:0 calc(27 * var(--u)) 0 calc(var(--pm) * 2 + 54 * var(--pu));background:#fff;border-top:1px solid rgba(11,11,20,0.14);font-family:'Inter',system-ui,sans-serif;font-size:12px;letter-spacing:0.02em;color:#0B0B14}
+.site-footer{flex:none;box-sizing:border-box;height:45px;margin-top:auto;display:flex;align-items:center;padding:0 calc(27 * var(--u)) 0 calc(var(--pm) * 2 + 54 * var(--pu));background:#fff;border-top:1px solid rgba(11,11,20,0.14);font-family:'Inter',system-ui,sans-serif;font-size:12px;letter-spacing:0.02em;color:#6B6B66}
 .site-footer p{margin:0}
 .snap .site-footer{scroll-snap-align:end}
 @media (max-width:1179px),(max-aspect-ratio:1/1){

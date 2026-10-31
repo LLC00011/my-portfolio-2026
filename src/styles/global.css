@@ -50,7 +50,7 @@ img{height:auto}
 /* Desktop: a 1350 x 800 page that scales with the viewport width (--u = 1 design px). */
 .page{position:relative;min-height:calc(800 * var(--u));overflow:hidden;background:#FAFAFA;color:#0B0B14;box-sizing:border-box;padding:0 calc(27 * var(--u)) 0 calc(var(--pm) * 2 + 54 * var(--pu));display:flex;flex-direction:column;justify-content:center}
 .mark{position:absolute;left:calc(-170 * var(--u));top:calc(500 * var(--u));margin:0;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;font-size:calc(480 * var(--u));line-height:1;text-transform:uppercase;white-space:nowrap;color:#F0F0EE;pointer-events:none;user-select:none}
-.cards{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 calc(21 * var(--u));list-style:none;margin:0;padding:0}
+.cards{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 calc(21 * var(--u));list-style:none;margin:0;padding:0}
 .card{display:flex;flex-direction:column;gap:calc(20 * var(--u));min-width:0}
 .pic{aspect-ratio:1.63;overflow:hidden;background:#E4E3DE}
 .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;transition:transform .5s ease}
@@ -80,7 +80,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .hd .lead{max-width:calc(640 * var(--u))}
 .lead.sm{font-size:calc(16 * var(--u));line-height:1.28}
 .hero{height:calc(800 * var(--u));min-height:0;overflow:hidden;background:#FAFAFA}
-.hero img{display:block;width:100%;height:100%;object-fit:cover}
+.hero img,.hero svg{display:block;width:100%;height:100%;object-fit:cover}
+.hero-word{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:700;font-size:925px;fill:#fff}
+.hero-caption{font-family:'Anton',Impact,sans-serif;font-size:27px;letter-spacing:0.02em;text-transform:uppercase;fill:#0B0B14}
 .band{position:absolute;display:block;z-index:0}
 .patch{position:absolute;background:#FAFAFA;z-index:1}
 .ab{position:absolute}
@@ -159,7 +161,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 @keyframes pill-grow-h{from{max-width:0;margin-left:calc(-14 * var(--pu));opacity:0;transform:scale(.4)}to{max-width:calc(44 * var(--pu));margin-left:0;opacity:1;transform:none}}
 @keyframes hero-in{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
 .gowrap{animation:pill-grow-v .8s cubic-bezier(.2,.8,.2,1) .55s both}
-.snap > .hero:first-child img{animation:hero-in 1.2s cubic-bezier(.2,.8,.2,1) both}
+.snap > .hero:first-child img,.snap > .hero:first-child svg{animation:hero-in 1.2s cubic-bezier(.2,.8,.2,1) both}
 
 /* About me */
 .page.about{justify-content:flex-start;padding:calc(104 * var(--u)) calc(135 * var(--u)) calc(60 * var(--u)) calc(135 * var(--u))}

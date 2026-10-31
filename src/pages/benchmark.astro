@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import HeroCollage from '../components/HeroCollage.astro';
 import Split from '../components/Split.astro';
 import Hd from '../components/Hd.astro';
 import ProcessDiagram from '../components/ProcessDiagram.astro';
@@ -21,7 +21,20 @@ const scope = [
 ---
 <Layout title="Pohjoismainen vakuutusyhtiö – Kilpailijabenchmarkkaus – Portfolio 2026" description="Pohjoismainen kilpailijabenchmarkkaus: kymmenen vakuuttajaa, neljä markkinaa ja yhteinen faktapohja pohjoismaisen vakuutusyhtiön digitaalisen kehityksen johdolle." current="works" next={{ href: "index.html", label: "Works" }} lang="fi" noindex>
 <div class="snap">
-<Hero alt="Pohjoismainen vakuutusyhtiö – Digitaalisten kanavien kilpailijabenchmarkkaus" heading="Pohjoismainen vakuutusyhtiö – Digitaalisten kanavien kilpailijabenchmarkkaus" placeholder="Hero-kuva: tulossa" />
+<HeroCollage
+  heading="Pohjoismainen vakuutusyhtiö – Kilpailijabenchmarkkaus"
+  alt="Kansikuva: kollaasi pohjoismaisista maisemista ja arjesta, muun muassa pariskunta kahvilla auton takaluukulla järven rannalla, tie metsän halki ja piirtävä nainen kotona"
+  word="NORDIC"
+  caption="Pohjoismainen benchmark"
+  tiles={[
+    { name: 'nordic-sketch', x: 43, y: 52, w: 460, h: 306 },
+    { name: 'nordic-window', x: 760, y: 40, w: 320, h: 213 },
+    { name: 'nordic-drive', x: 1537, y: 52, w: 463, h: 306 },
+    { name: 'nordic-couple', x: 674, y: 343, w: 697, h: 465 },
+    { name: 'nordic-mirror', x: 41, y: 634, w: 462, h: 457 },
+    { name: 'nordic-lake', x: 1537, y: 815, w: 463, h: 276 },
+  ]}
+/>
 
 <Split narrow snug>
 <Fragment slot="visual"><ScopeTree label="Benchmarkin rajaus: markkinat Suomi, Ruotsi, Norja ja Tanska; fokus henkilöasiakkaat ja autovakuutus; kanavat mobiilisovellus ja verkkopalvelu; vaiheet ostaminen, hallinta ja vahinkoilmoitus. Kaikki osat johtavat johtopäätöksiin." root="Benchmark" end="Johto&shy;päätökset" branches={scope} /></Fragment>

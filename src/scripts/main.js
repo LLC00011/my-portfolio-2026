@@ -4,7 +4,7 @@
 /* Replay the entrance animations when a case page comes back from the back/forward cache. */
 window.addEventListener('pageshow', function (e) {
   if (!e.persisted) return;
-  document.querySelectorAll('.snap > .hero:first-child img, #go-wrap').forEach(function (el) {
+  document.querySelectorAll('.snap > .hero:first-child img, .snap > .hero:first-child svg, #go-wrap').forEach(function (el) {
     el.style.animation = 'none';
     void el.offsetWidth;
     el.style.animation = '';

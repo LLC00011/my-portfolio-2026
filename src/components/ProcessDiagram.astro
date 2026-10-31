@@ -1,0 +1,80 @@
+---
+// Process diagram: three circles (data, shared framework, results) with a validation loop back to the data.
+// Drawn as inline SVG so the text stays live and sharp. A wide version for desktop and a stacked one for mobile.
+interface Circle { cx: number; cy: number; r: number; dark?: boolean; items: string[][] }
+interface Layout {
+  id: string;
+  viewBox: string;
+  circles: Circle[];
+  captions: { x: number; y: number; text: string }[];
+  arrows: string[];
+  note: { x: number; y: number; text: string };
+}
+const { label, note } = Astro.props;
+
+const labels = {
+  data: [['Asiakas-', 'tutkimus'], ['Mystery', 'shopping'], ['Desk', 'study']],
+  framework: [['Tausta-', 'kyvykkyydet'], ['Kypsyys-', 'arvio'], ['Asiakkaan', 'itsenäisyys']],
+  results: [['Markkina-', 'aukot'], ['Kehityksen', 'suuntaus'], ['Vahvuudet']],
+};
+// Sector order: upper right, bottom, upper left. Each sector spans 120 degrees.
+const sectors = [{ from: -90, to: 30, mid: -30 }, { from: 30, to: 150, mid: 90 }, { from: 150, to: 270, mid: 210 }];
+
+const wide: Layout = {
+  id: 'pd-w',
+  viewBox: '0 0 1190 520',
+  circles: [
+    { cx: 235, cy: 270, r: 135, items: labels.data },
+    { cx: 595, cy: 170, r: 135, dark: true, items: labels.framework },
+    { cx: 955, cy: 270, r: 135, items: labels.results },
+  ],
+  captions: [{ x: 235, y: 450, text: 'AINEISTO' }, { x: 595, y: 338, text: 'YHTEINEN KEHIKKO' }, { x: 955, y: 450, text: 'TULOS' }],
+  arrows: ['M 230 108 C 270 55 380 50 440 100', 'M 750 100 C 810 50 920 55 960 108', 'M 885 402 C 800 495 390 495 305 402'],
+  note: { x: 595, y: 440, text: note },
+};
+const tall: Layout = {
+  id: 'pd-t',
+  viewBox: '0 0 360 1030',
+  circles: [
+    { cx: 180, cy: 134, r: 124, items: labels.data },
+    { cx: 180, cy: 486, r: 124, dark: true, items: labels.framework },
+    { cx: 180, cy: 832, r: 124, items: labels.results },
+  ],
+  captions: [{ x: 180, y: 288, text: 'AINEISTO' }, { x: 180, y: 642, text: 'YHTEINEN KEHIKKO' }, { x: 180, y: 988, text: 'TULOS' }],
+  arrows: ['M 180 306 L 180 350', 'M 180 660 L 180 704', 'M 306 880 C 368 780 368 210 312 114'],
+  note: { x: 180, y: 1016, text: note },
+};
+
+function pt(cx: number, cy: number, r: number, deg: number) {
+  const a = (deg * Math.PI) / 180;
+  return [Math.round((cx + r * Math.cos(a)) * 10) / 10, Math.round((cy + r * Math.sin(a)) * 10) / 10];
+}
+function wedge(c: Circle, from: number, to: number) {
+  const [x0, y0] = pt(c.cx, c.cy, c.r, from);
+  const [x1, y1] = pt(c.cx, c.cy, c.r, to);
+  return `M ${c.cx} ${c.cy} L ${x0} ${y0} A ${c.r} ${c.r} 0 0 1 ${x1} ${y1} Z`;
+}
+---
+{[wide, tall].map((v, n) => (
+<svg class={n === 0 ? 'pd-svg pd-wide' : 'pd-svg pd-tall'} viewBox={v.viewBox} role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern id={`${v.id}-hatch`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#0B0B14" stroke-opacity="0.24" stroke-width="1.2" /></pattern>
+<marker id={`${v.id}-head`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 1.5 1.5 L 8 5 L 1.5 8.5" fill="none" stroke="#0B0B14" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></marker>
+</defs>
+{v.circles.map((c) => (
+<g class={c.dark ? 'pd-circle dark' : 'pd-circle'}>
+{sectors.map((s) => <path d={wedge(c, s.from, s.to)} class="pd-seg" fill={c.dark ? '#0B0B14' : `url(#${v.id}-hatch)`} />)}
+<circle cx={c.cx} cy={c.cy} r={c.r} fill="none" stroke="#0B0B14" stroke-width="1.2" />
+{sectors.map((s) => { const [x, y] = pt(c.cx, c.cy, c.r, s.from); return <line x1={c.cx} y1={c.cy} x2={x} y2={y} stroke={c.dark ? '#FAFAFA' : '#0B0B14'} stroke-width="1.2" />; })}
+{sectors.map((s, i) => {
+  const [x, y] = pt(c.cx, c.cy, c.r * 0.6, s.mid);
+  const lines = c.items[i];
+  return <text x={x} y={y - ((lines.length - 1) * 9)} class="pd-t">{lines.map((l, k) => <tspan x={x} dy={k === 0 ? 0 : 18}>{l}</tspan>)}</text>;
+})}
+</g>
+))}
+{v.captions.map((c) => <text x={c.x} y={c.y} class="pd-cap">{c.text}</text>)}
+{v.arrows.map((d, i) => <path d={d} fill="none" stroke="#0B0B14" stroke-width="1.2" stroke-linecap="round" marker-end={`url(#${v.id}-head)`} />)}
+<text x={v.note.x} y={v.note.y} class="pd-note">{v.note.text}</text>
+</svg>
+))}

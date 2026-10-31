@@ -289,3 +289,19 @@ img.ab{width:100% !important}
 /* Fact list in a case intro (client, timing, markets...) */
 .facts{display:flex;flex-direction:column;gap:calc(8 * var(--u));font-family:'Inter',system-ui,sans-serif;font-size:calc(13 * var(--u));line-height:1.35}
 .facts p{margin:0;display:grid;grid-template-columns:calc(86 * var(--u)) minmax(0,1fr);gap:calc(12 * var(--u))}
+
+/* Process diagram (ProcessDiagram.astro): wide on desktop, stacked on mobile */
+.pd{position:relative;z-index:2;padding:calc(16 * var(--u)) calc(80 * var(--u)) 0}
+.pd-svg{display:block;width:100%;height:auto;overflow:visible}
+.pd-tall{display:none}
+.pd-svg text{font-family:'Inter',system-ui,sans-serif;fill:#0B0B14}
+.pd-svg .pd-t{font-size:15px;font-weight:500;text-anchor:middle;dominant-baseline:central}
+.pd-svg .dark .pd-t{fill:#FAFAFA}
+.pd-svg .pd-cap{font-size:12px;font-weight:700;letter-spacing:0.08em;text-anchor:middle}
+.pd-svg .pd-note{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:14px;text-anchor:middle}
+@media (max-width:1179px),(max-aspect-ratio:1/1){
+.pd{padding:calc(32 * var(--u)) calc(24 * var(--u)) calc(110 * var(--u))}
+.pd-wide{display:none}
+.pd-tall{display:block;max-width:calc(420 * var(--u));margin:0 auto}
+.pd-svg .pd-t{font-size:14px}
+}

@@ -334,7 +334,7 @@ img.ab{width:100% !important}
 }
 
 /* Diagram on a grey ground in a split fold, and the scope tree (ScopeTree.astro) */
-.photo .vis{position:absolute;inset:0;background:#E4E3DE;display:flex;align-items:center;justify-content:center;padding:calc(40 * var(--u)) calc(24 * var(--u)) calc(40 * var(--u)) calc(96 * var(--u))}
+.photo .vis{position:absolute;inset:0;background:#D4DAE1;display:flex;align-items:center;justify-content:center;padding:calc(40 * var(--u)) calc(24 * var(--u)) calc(40 * var(--u)) calc(96 * var(--u))}
 .tree{--c:calc(18 * var(--u));display:flex;align-items:center;font-family:'Inter',system-ui,sans-serif;font-size:calc(14 * var(--u));line-height:1.2;color:#0B0B14}
 .tree .tn{border:1px solid #0B0B14;background:#FAFAFA;padding:calc(8 * var(--u)) calc(14 * var(--u));white-space:nowrap}
 .tree .root{background:#0B0B14;color:#FAFAFA;font-weight:700;padding-left:calc(12 * var(--u));padding-right:calc(12 * var(--u))}

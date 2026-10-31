@@ -321,6 +321,7 @@ img.ab{width:100% !important}
 .fd-text{display:flex;flex-direction:column;gap:calc(22 * var(--u));padding-top:calc(8 * var(--u))}
 .fd .col{gap:calc(12 * var(--u))}
 .fd .col ul{gap:calc(10 * var(--u))}
+.pd-svg .on-dark{fill:#FAFAFA}
 .pd-svg .fd-i{font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:central}
 .pd-svg .fd-cap{font-size:11.5px;dominant-baseline:central}
 .pd-svg .fd-axis{font-size:11.5px}
@@ -349,7 +350,7 @@ img.ab{width:100% !important}
 .tbr:only-child::after{display:none}
 .tree .leaf{width:calc(134 * var(--u));box-sizing:border-box}
 .tb-main > .tbr > .tn-w > .tn{width:calc(100 * var(--u));box-sizing:border-box}
-.tb-main > .tbr > .tn-w > .tn{background:repeating-linear-gradient(45deg,rgba(11,11,20,0.2) 0 1px,#FAFAFA 1px 6px);font-weight:500}
+.tb-main > .tbr > .tn-w > .tn{background:repeating-linear-gradient(45deg,rgba(11,11,20,0.22) 0 1px,#FAFAFA 1px 6px);font-weight:500}
 .tbr.lf{padding-right:var(--c)}
 .rt,.out{position:absolute;right:0;top:0;bottom:0}
 .rt{width:var(--c)}

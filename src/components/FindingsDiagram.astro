@@ -64,22 +64,28 @@ function band(l: Layout, rin: number, rout: number) {
   const inner = rin === 0 ? `L ${ox} ${oy}` : `L ${ox} ${oy - rin} A ${rin} ${rin} 0 0 1 ${ox + rin} ${oy}`;
   return `M ${ox + rout} ${oy} A ${rout} ${rout} 0 0 0 ${ox} ${oy - rout} ${inner} Z`;
 }
-const opacity = [0.12, 0.2, 0.3];
+// Same fill logic as the other diagrams: high = black, medium = hatched, low = white.
+const fills = ['none', 'hatch', 'dark'];
+function level(l: Layout, it: Item) {
+  const d = Math.hypot(it.dx, it.dy);
+  return d < l.radii[0] ? 0 : d < l.radii[1] ? 1 : 2;
+}
 ---
 {[wide, tall].map((v, n) => (
 <svg class={n === 0 ? 'pd-svg pd-wide' : 'pd-svg pd-tall'} viewBox={v.viewBox} role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
 <defs>
-{opacity.map((o, i) => <pattern id={`${v.id}-h${i}`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#0B0B14" stroke-opacity={o + 0.1} stroke-width="1.2" /></pattern>)}
+<pattern id={`${v.id}-hatch`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#0B0B14" stroke-opacity="0.22" stroke-width="1" /></pattern>
 <marker id={`${v.id}-head`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M 1.5 1.5 L 8 5 L 1.5 8.5" fill="none" stroke="#0B0B14" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></marker>
 </defs>
-{v.radii.map((r, i) => <path d={band(v, i === 0 ? 0 : v.radii[i - 1], r)} fill={`url(#${v.id}-h${i})`} stroke="#0B0B14" stroke-width="1.2" />)}
+{v.radii.map((r, i) => <path d={band(v, i === 0 ? 0 : v.radii[i - 1], r)} fill={fills[i] === 'hatch' ? `url(#${v.id}-hatch)` : fills[i] === 'dark' ? '#0B0B14' : 'none'} stroke="#0B0B14" stroke-width="1.2" />)}
 <path d={`M ${v.ox} ${v.oy} L ${v.ox + v.radii[2] + 24} ${v.oy}`} fill="none" stroke="#0B0B14" stroke-width="1.2" marker-end={`url(#${v.id}-head)`} />
 <path d={`M ${v.ox} ${v.oy} L ${v.ox} ${v.oy - v.radii[2] - 24}`} fill="none" stroke="#0B0B14" stroke-width="1.2" marker-end={`url(#${v.id}-head)`} />
 {v.items.map((it) => {
   const lh = it.cap ? 14 : 16;
   const x = v.ox + it.dx;
   const y = v.oy + it.dy - ((it.lines.length - 1) * lh) / 2;
-  return <text x={x} y={y} class={it.cap ? 'pd-cap fd-cap' : 'fd-i'}>{it.lines.map((l, k) => <tspan x={x} dy={k === 0 ? 0 : lh}>{l}</tspan>)}</text>;
+  const dark = level(v, it) === 2 ? ' on-dark' : '';
+  return <text x={x} y={y} class={(it.cap ? 'pd-cap fd-cap' : 'fd-i') + dark}>{it.lines.map((l, k) => <tspan x={x} dy={k === 0 ? 0 : lh}>{l}</tspan>)}</text>;
 })}
 {v.ticks.map((t) => <text x={v.ox + t.dx} y={v.tickY} class="fd-tick">{t.text}</text>)}
 <text x={v.xName.x} y={v.xName.y} class="pd-cap fd-axis">ASIAKKAAN ITSENÄISYYS</text>

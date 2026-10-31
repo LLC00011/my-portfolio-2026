@@ -1,6 +1,7 @@
 ---
 // Scope tree: what the benchmark covered (markets, focus, channels, journey phases), with every branch leading on to the recommendation.
 interface Branch { label: string; leaves: string[] }
+// end may contain soft hyphens (&shy;) so the label can break on narrow screens.
 interface Props { label: string; root: string; end: string; branches: Branch[] }
 const { label, root, end, branches } = Astro.props;
 ---
@@ -17,5 +18,5 @@ const { label, root, end, branches } = Astro.props;
 </div>
 ))}
 </div>
-<div class="sug-w"><div class="tn root">{end}</div></div>
+<div class="sug-w"><div class="tn root" set:html={end}></div></div>
 </div>

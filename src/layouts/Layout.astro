@@ -7,16 +7,19 @@ interface Props {
   description: string;
   current: 'works' | 'about';
   next?: { href: string; label: string };
+  lang?: string;
+  noindex?: boolean;
 }
-const { title, description, current, next } = Astro.props;
+const { title, description, current, next, lang = 'en', noindex = false } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
+{noindex && <meta name="robots" content="noindex, nofollow">}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

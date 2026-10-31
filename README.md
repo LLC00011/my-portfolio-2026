@@ -37,3 +37,15 @@ Desktop pages are designed at 1350 x 800 px per fold. Every size in `src/styles/
 ## Showing the hidden mini-case
 
 The S-kaupat "Better substitutions" mini-case is built but hidden. To show it, set `showSubstitutionCase` to `true` in `src/pages/sok.astro`.
+
+## Covers
+
+The covers of every case (PME, Posti, SOK and the Nordic benchmark) are exported images (`src/assets/*-hero.jpg`),
+made in Figma. The lettering on them is set in commercial trial fonts, so it only exists inside the images:
+
+| Part | Figma font | Spec (1920 x 1080 frame) |
+| --- | --- | --- |
+| Big white word | GT Super Text Trial, Book Italic | 820 px, letter spacing -2 % (-16.4 px), white |
+| Caption | GT America Trial, Condensed Bold | 24 px, letter spacing +3 % (0.72 px), colour `#0b0f1c` |
+
+To add a case cover, export the frame as a JPG (3754 x 2047 is what the others use) and use the `Hero` component.

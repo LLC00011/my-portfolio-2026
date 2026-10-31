@@ -1,0 +1,22 @@
+---
+// Scope tree: what the benchmark covered (markets, focus, channels, journey phases), with every branch leading on to the recommendation.
+interface Branch { label: string; leaves: string[] }
+// end may contain soft hyphens (&shy;) so the label can break on narrow screens.
+interface Props { label: string; root: string; end: string; branches: Branch[] }
+const { label, root, end, branches } = Astro.props;
+---
+<div class="tree" role="img" aria-label={label}>
+<div class="tn-w has tree-root"><div class="tn root">{root}</div></div>
+<div class="tb tb-main">
+{branches.map((b) => (
+<div class="tbr">
+<div class="tn-w has"><div class="tn">{b.label}</div></div>
+<div class="tb">
+{b.leaves.map((l) => <div class="tbr lf"><div class="tn leaf">{l}</div><div class="rt"></div></div>)}
+</div>
+<div class="out"></div>
+</div>
+))}
+</div>
+<div class="sug-w"><div class="tn root" set:html={end}></div></div>
+</div>

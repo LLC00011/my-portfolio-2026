@@ -32,9 +32,9 @@ const wide: Layout = {
     { dx: 235, dy: -235, lines: ['SUOMI'], cap: true },
     { dx: 140, dy: -140, lines: ['RUOTSI', 'NORJA', 'TANSKA'], cap: true },
   ],
-  ticks: [{ dx: 65, text: 'MATALA' }, { dx: 198, text: 'KESKITASO' }, { dx: 333, text: 'KORKEA' }],
+  ticks: [{ dx: 65, text: 'Matala' }, { dx: 198, text: 'Keskitaso' }, { dx: 333, text: 'Korkea' }],
   tickY: 462,
-  xName: { x: 460, y: 485 },
+  xName: { x: 260, y: 487 },
   yName: { x: 28, y: 240 },
 };
 const tall: Layout = {
@@ -52,9 +52,9 @@ const tall: Layout = {
     { dx: 170, dy: -170, lines: ['SUOMI'], cap: true },
     { dx: 105, dy: -105, lines: ['RUOTSI', 'NORJA', 'TANSKA'], cap: true },
   ],
-  ticks: [{ dx: 50, text: 'MATALA' }, { dx: 147, text: 'KESKITASO' }, { dx: 242, text: 'KORKEA' }],
+  ticks: [{ dx: 50, text: 'Matala' }, { dx: 147, text: 'Keskitaso' }, { dx: 242, text: 'Korkea' }],
   tickY: 342,
-  xName: { x: 324, y: 368 },
+  xName: { x: 179, y: 370 },
   yName: { x: 12, y: 175 },
 };
 
@@ -81,8 +81,8 @@ const opacity = [0.12, 0.2, 0.3];
   const y = v.oy + it.dy - ((it.lines.length - 1) * lh) / 2;
   return <text x={x} y={y} class={it.cap ? 'pd-cap fd-cap' : 'fd-i'}>{it.lines.map((l, k) => <tspan x={x} dy={k === 0 ? 0 : lh}>{l}</tspan>)}</text>;
 })}
-{v.ticks.map((t) => <text x={v.ox + t.dx} y={v.tickY} class="pd-cap">{t.text}</text>)}
-<text x={v.xName.x} y={v.xName.y} class="pd-cap fd-axis fd-end">ASIAKKAAN ITSENÄISYYS</text>
+{v.ticks.map((t) => <text x={v.ox + t.dx} y={v.tickY} class="fd-tick">{t.text}</text>)}
+<text x={v.xName.x} y={v.xName.y} class="pd-cap fd-axis">ASIAKKAAN ITSENÄISYYS</text>
 <text x={v.yName.x} y={v.yName.y} class="pd-cap fd-axis" transform={`rotate(-90 ${v.yName.x} ${v.yName.y})`}>TAUSTAKYVYKKYYDET</text>
 </svg>
 ))}

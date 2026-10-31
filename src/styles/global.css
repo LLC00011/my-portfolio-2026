@@ -448,5 +448,5 @@ body > .page{flex:1 0 auto}
 .site-footer p{margin:0}
 .snap .site-footer{scroll-snap-align:end}
 @media (max-width:1179px),(max-aspect-ratio:1/1){
-.site-footer{padding:0 calc(24 * var(--u))}
+.site-footer{padding:0 calc(24 * var(--u)) 0 14px;font-size:11px}
 }

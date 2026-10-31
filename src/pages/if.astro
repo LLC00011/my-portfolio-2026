@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Split from '../components/Split.astro';
+import Hd from '../components/Hd.astro';
+import Timeline from '../components/Timeline.astro';
+
+// DRAFT. Not linked from the Works index and hidden from search engines (noindex).
+// The project was under NDA: get If's publishing permission before this goes public.
+//  - No company-specific ratings, no If self-assessment and no market leaders' names, in the text or in images.
+//  - Good images: the evaluation framework without values, the process diagram, an anonymised country comparison structure.
+//  - Fallback: a fully anonymous version ("Nordic non-life insurer" instead of If).
+// All images are grey placeholders until the visuals are ready.
+const steps = [
+  { cls: 'g-if', label: 'LOKA–JOULUKUU 2024', cols: 'c5', steps: [
+    { no: 1, title: 'Kick-off ja rajaus', text: 'Ifin sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.' },
+    { no: 2, title: 'Desk study', text: 'kilpailijoiden julkinen tieto: sovellukset, kehittäjäportaalit ja tekoälyratkaisut.' },
+    { no: 3, title: 'Asiakastutkimus', text: '11 kilpailijoiden asiakasta, joilla autovakuutus ja korvausasia viimeisen 12 kk aikana. Jokainen teki kyselyn, ja vastaukset varmistettiin yksilöhaastattelussa.' },
+    { no: 4, title: 'Mystery shopping', text: 'kirjautumattoman ostopolun vaiheet dokumentoitiin jokaiselta yhtiöltä.' },
+    { no: 5, title: 'Analyysi', text: 'yhtiö- ja maakohtaiset kypsyysarviot (matala–keskitaso–korkea), Ifin oma arvio samalla kehikolla ja pohjoismainen synteesi.' },
+  ] },
+];
+---
+<Layout title="If – Digitaalisten kanavien kilpailijabenchmarkkaus – Portfolio 2026" description="Pohjoismainen kilpailijabenchmarkkaus: kymmenen vakuuttajaa, neljä markkinaa ja yhteinen faktapohja Ifin digitaalisen kehityksen johdolle." current="works" next={{ href: "index.html", label: "Works" }} lang="fi" noindex>
+<div class="snap">
+<Hero alt="If – Digitaalisten kanavien kilpailijabenchmarkkaus" heading="If – Digitaalisten kanavien kilpailijabenchmarkkaus" placeholder="Hero-kuva: tulossa" />
+
+<Split alt="Kuvan paikka: arviointikehikko ilman arvoja" placeholder="Kuva: arviointikehikko ilman arvoja" narrow>
+<Fragment slot="title">Pohjoismainen benchmark</Fragment>
+<Fragment slot="lead">Rakensimme Ifille puolueettoman kuvan siitä, missä sen digitaaliset palvelut seisovat pohjoismaisessa kilpailussa.</Fragment>
+<p>Kahdessa kuukaudessa vertasimme kymmentä vakuuttajaa neljällä markkinalla samalla kehikolla ja kokosimme tuloksista johdolle pohjan, joka ohjasi Ifin seuraavan vuoden kehitysbudjetteja.</p>
+<div class="facts">
+<p><b>Asiakas</b> If Vahinkovakuutus, BA Private DS&amp;CX</p>
+<p><b>Ajankohta</b> Loka–joulukuu 2024</p>
+<p><b>Markkinat</b> Suomi, Ruotsi, Norja, Tanska</p>
+<p><b>Fokus</b> Henkilöasiakkaiden autovakuutus, mobiilisovellus ja verkkopalvelu</p>
+<p><b>Tiimi</b> Lasse Lakela (Principal Designer, Partner) ja Jukka Karimaa (Strategist), Hellon; Ifin ydintiimi ja 8 hengen referenssiryhmä</p>
+<p><b>Oma rooli</b> Projektin toteutus, vakuutusliiketoiminnan ja digitaalisen transformaation näkökulma, sidosryhmätyö</p>
+</div>
+</Split>
+
+<section class="fold">
+<Hd style="max-width:calc(760 * var(--u))">
+<Fragment slot="title">Haaste</Fragment>
+If on Pohjoismaiden suurin vahinkovakuuttaja. Se on investoinut paljon If Mobileen ja Omiin sivuihin, mutta kuva kilpailuasemasta rakentui pitkälti talon sisältä. Hanke oli puhtaasti strateginen: If halusi katsoa kilpailijoita oman kuplansa ulkopuolelta.
+</Hd>
+<div class="rowpad">
+<div class="stats3">
+<div class="stat"><div class="big">3,9 M</div><div class="lab">Asiakasta</div></div>
+<div class="stat"><div class="big">1,4 M</div><div class="lab">Korvausasiaa vuodessa</div></div>
+<div class="stat"><div class="big">4</div><div class="lab">Markkinaa</div></div>
+</div>
+</div>
+<div class="cols2">
+<div class="col">
+<h3>If halusi tietää kolme asiaa</h3>
+<ul>
+<li>Kuinka kypsiä sen digipalvelut ovat verrattuna keskeisiin kilpailijoihin kussakin maassa?</li>
+<li>Mitkä ovat todelliset kilpailuedut, joista voi viestiä sisäisesti ja ulkoisesti?</li>
+<li>Mihin kehitys kannattaa kohdistaa, jotta asema säilyy ja paranee?</li>
+</ul>
+</div>
+<div class="col">
+<h3>Vaikeus</h3>
+<p class="strong">Kilpailijoiden kirjautuneen asiakkaan näkymät ovat suljettuja. Tieto piti hankkia kilpailijoiden omilta asiakkailta niin, että GDPR ja tekijänoikeudet pysyvät kunnossa.</p>
+</div>
+</div>
+</section>
+
+<section class="fold">
+<Hd style="max-width:calc(760 * var(--u))">
+<Fragment slot="title">Lähestymistapa</Fragment>
+Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. Kehikko jakautui kahteen osaan: asiakkaan digitaalinen itsenäisyys ja digipalveluiden taustakyvykkyydet.
+</Hd>
+<div class="cols2">
+<div class="col">
+<h3>Asiakkaan itsenäisyys</h3>
+<div class="tagline"><span class="tag">Mitä arvioitiin</span><span class="line"></span></div>
+<p class="strong">Mitä asiakas pystyy itse tekemään sovelluksessa ja verkossa.</p>
+<ul>
+<li>Käyttäminen</li>
+<li>Viestintä</li>
+<li>Personointi ja lisämyynti</li>
+<li>Laskutuksen hallinta</li>
+<li>Vakuutusten ja profiilin muokkaus</li>
+</ul>
+</div>
+<div class="col">
+<h3>Taustakyvykkyydet</h3>
+<div class="tagline"><span class="tag">Mitä arvioitiin</span><span class="line"></span></div>
+<p class="strong">Mitä digipalveluiden taustalla on, mutta asiakas ei suoraan näe.</p>
+<ul>
+<li>Personointi</li>
+<li>Kanavastrategia: natiivi, cross-platform vai wrapper</li>
+<li>Asiakkaalle näkyvä tekoäly</li>
+<li>Rajapinnat ja kehittäjäportaalit</li>
+<li>Kirjautumaton ostopolku</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="fold fold2">
+<div class="top">
+<div class="top-l">
+<h2 class="h">Viisi vaihetta</h2>
+<p class="sans lead">Vertailussa oli 10 kilpailijaa Suomessa, Ruotsissa, Norjassa ja Tanskassa. Työ eteni viidessä vaiheessa.</p>
+</div>
+</div>
+<Timeline groups={steps} />
+</section>
+
+<Split rev alt="Kuvan paikka: prosessikaavio" placeholder="Kuva: prosessikaavio" narrow>
+<Fragment slot="title">Tekoäly analyysin tukena</Fragment>
+<Fragment slot="lead">ChatGPT avusti koko projektin ajan benchmark-aineiston analyysissä, havaintojen purussa ja yhteenvetojen muotoilussa.</Fragment>
+<p>Ihminen validoi jokaisen lopputuloksen: arviot tarkistettiin kyselyvastauksia, haastatteluja ja desk studya vasten.</p>
+</Split>
+
+<section class="fold">
+<Hd style="max-width:calc(760 * var(--u))">
+<Fragment slot="title">Löydökset</Fragment>
+Lopputuloksena syntyi 109-sivuinen benchmark-raportti, joka antaa Ifille yhteisen faktapohjan kilpailuasemasta jokaisella neljällä markkinalla. Julkaistavissa olevat yleistason havainnot:
+</Hd>
+<div class="cols2">
+<div class="col">
+<ul>
+<li><b>Suomi erottui edukseen.</b> Suomen markkina oli digitaalisesti kypsin; Ruotsi, Norja ja Tanska asettuivat keskitasolle.</li>
+<li><b>Itsepalvelu on kaikkien suunta, mutta korvausasiat hoidetaan yhä puhelimessa.</b> Haastatellut asiakkaat soittivat mieluummin asiakaspalveluun kuin ilmoittivat vahingon digitaalisesti.</li>
+<li><b>Tekoäly näkyi puheissa, ei asiakkaan arjessa.</b> Vain yksi vertailun yhtiöistä tarjosi julkisesti generatiivista tekoälyä asiakaspalvelussa.</li>
+</ul>
+</div>
+<div class="col">
+<ul>
+<li><b>Personointi ja lisämyynti olivat koko alan heikko kohta.</b> Asiakas pystyy käyttämään ja viestimään digitaalisesti hyvin, mutta räätälöidyt tarjoukset puuttuvat lähes kaikilta.</li>
+<li><b>Mobiilistrategiat vaihtelevat.</b> Natiivit sovellukset, cross-platform-ratkaisut ja wrapper-sovellukset elävät rinnakkain, myös saman yhtiön eri maissa.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="fold">
+<Hd style="max-width:calc(760 * var(--u))">
+<Fragment slot="title">Tulokset ja vaikutus</Fragment>
+Ifille raportti toi näkyviin vahvuudet, esimerkiksi sujuvan vahinkoilmoituksen kaikissa kanavissa ja lyhyen kirjautumattoman ostopolun, sekä markkinakohtaiset aukot, joihin kehitystä voi kohdistaa.
+</Hd>
+<div class="rowpad">
+<div class="stats3">
+<div class="stat"><div class="big">109</div><div class="lab">Sivun benchmark-raportti</div></div>
+<div class="stat"><div class="big">10</div><div class="lab">Kilpailijaa</div></div>
+<div class="stat"><div class="big">4</div><div class="lab">Markkinaa</div></div>
+</div>
+</div>
+<div class="cols2">
+<div class="col">
+<h3>Vaikutus</h3>
+<p class="strong">Ulkopuolinen näkymä vahvisti Ifin oman tulkinnan markkinasta ja antoi sille faktapohjan. Tulokset ohjasivat seuraavan vuoden kehitysbudjettien kohdentamista.</p>
+</div>
+</div>
+</section>
+
+<Split alt="Kuvan paikka: projektin tilannekuva" placeholder="Kuva: tulossa" narrow>
+<Fragment slot="title">Oma rooli</Fragment>
+<Fragment slot="lead">Hellonin ydintiimin muodostimme kahdestaan strategi Jukka Karimaan kanssa, ja molemmat teimme vahvasti hands-on-työtä: tutkimuksen ja loppuraportin teimme itse.</Fragment>
+<div class="col">
+<ul>
+<li>Arviointikehikon ja tutkimusasetelman suunnittelu, jotta suljettujen palveluiden tiedot saatiin kerättyä GDPR-yhteensopivasti</li>
+<li>Asiakaskyselyt ja -haastattelut, desk study ja kirjautumattomien ostopolkujen mystery shopping</li>
+<li>Kilpailijoiden digikanavien, sovellusten ja teknologiavalintojen analyysi</li>
+<li>109-sivuisen loppuraportin, kypsyysarvioiden ja pohjoismaisen synteesin laatiminen</li>
+<li>Tulosten esittely Ifin sidosryhmille</li>
+</ul>
+</div>
+</Split>
+
+</div>
+</Layout>

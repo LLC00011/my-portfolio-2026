@@ -285,3 +285,7 @@ img.ab{width:100% !important}
 
 /* Landscape phones: keep the text compact so more than a few lines fit on a short screen */
 @media (max-width:1179px) and (max-height:520px) and (orientation:landscape){body{--u:0.9px}}
+
+/* Fact list in a case intro (client, timing, markets...) */
+.facts{display:flex;flex-direction:column;gap:calc(8 * var(--u));font-family:'Inter',system-ui,sans-serif;font-size:calc(13 * var(--u));line-height:1.35}
+.facts p{margin:0;display:grid;grid-template-columns:calc(86 * var(--u)) minmax(0,1fr);gap:calc(12 * var(--u))}

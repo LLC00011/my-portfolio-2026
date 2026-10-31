@@ -388,11 +388,15 @@ img.ab{width:100% !important}
 .info.snug{padding:calc(60 * var(--u)) calc(48 * var(--u)) calc(44 * var(--u)) calc(72 * var(--u));gap:calc(28 * var(--u))}
 }
 
-/* Impact box under the results numbers */
-.impact{display:flex;align-items:center;gap:calc(40 * var(--u));background:#0B0B14;color:#FAFAFA;padding:calc(34 * var(--u)) calc(40 * var(--u));box-sizing:border-box}
-.impact .cap{flex:none;font-family:'Inter',system-ui,sans-serif;font-size:max(11px,calc(12 * var(--u)));font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
-.impact p{margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:calc(24 * var(--u));font-weight:700;line-height:1.25}
+/* Impact box under the results numbers: same outline as the stat boxes, smaller */
+.impact{display:flex;align-items:baseline;gap:calc(24 * var(--u));border:1px solid #0B0B14;padding:calc(18 * var(--u)) calc(24 * var(--u));box-sizing:border-box}
+.impact .cap{flex:none;font-family:'Inter',system-ui,sans-serif;font-size:max(10px,calc(10 * var(--u)));font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.impact p{margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:calc(15 * var(--u));font-weight:700;line-height:1.35}
 @media (max-width:1179px),(max-aspect-ratio:1/1){
-.impact{flex-direction:column;align-items:flex-start;gap:calc(12 * var(--u));padding:calc(24 * var(--u))}
-.impact p{font-size:calc(20 * var(--u))}
+.impact{flex-direction:column;gap:calc(8 * var(--u));padding:calc(16 * var(--u))}
+.impact p{font-size:calc(16 * var(--u))}
+}
+/* Longer fold: content decides the height, with room below the last block (desktop) */
+@media (min-width:1180px) and (min-aspect-ratio:1/1){
+.fold.long > .rowpad:last-child{padding-bottom:calc(96 * var(--u))}
 }

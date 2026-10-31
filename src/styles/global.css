@@ -337,20 +337,34 @@ img.ab{width:100% !important}
 }
 
 /* Diagram on a grey ground in a split fold, and the scope tree (ScopeTree.astro) */
-.photo .vis{position:absolute;inset:0;background:#E4E3DE;display:flex;align-items:center;justify-content:center;padding:calc(40 * var(--u))}
-.tree{display:flex;align-items:center;font-family:'Inter',system-ui,sans-serif;font-size:calc(14 * var(--u));line-height:1.2;color:#0B0B14}
+.photo .vis{position:absolute;inset:0;background:#E4E3DE;display:flex;align-items:center;justify-content:center;padding:calc(40 * var(--u)) calc(40 * var(--u)) calc(40 * var(--u)) calc(96 * var(--u))}
+.tree{--c:calc(22 * var(--u));display:flex;align-items:center;font-family:'Inter',system-ui,sans-serif;font-size:calc(14 * var(--u));line-height:1.2;color:#0B0B14}
 .tree .tn{border:1px solid #0B0B14;background:#FAFAFA;padding:calc(8 * var(--u)) calc(14 * var(--u));white-space:nowrap}
 .tree .root{background:#0B0B14;color:#FAFAFA;font-weight:700}
-.tn-w{position:relative;flex:none;padding-right:calc(28 * var(--u))}
-.tn-w.has::after{content:"";position:absolute;right:0;top:50%;width:calc(28 * var(--u));border-top:1px solid #0B0B14}
+.tn-w{position:relative;flex:none;padding-right:var(--c)}
+.tn-w.has::after{content:"";position:absolute;right:0;top:50%;width:var(--c);border-top:1px solid #0B0B14}
 .tb{display:flex;flex-direction:column}
-.tbr{position:relative;display:flex;align-items:center;padding:calc(5 * var(--u)) 0 calc(5 * var(--u)) calc(28 * var(--u))}
+.tbr{position:relative;display:flex;align-items:center;padding:calc(5 * var(--u)) 0 calc(5 * var(--u)) var(--c)}
 .tb-main > .tbr{padding-top:calc(14 * var(--u));padding-bottom:calc(14 * var(--u))}
-.tbr::before{content:"";position:absolute;left:0;top:50%;width:calc(28 * var(--u));border-top:1px solid #0B0B14}
+.tbr::before{content:"";position:absolute;left:0;top:50%;width:var(--c);border-top:1px solid #0B0B14}
 .tbr::after{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid #0B0B14}
 .tbr:first-child::after{top:50%}
 .tbr:last-child::after{bottom:50%}
 .tbr:only-child::after{display:none}
+.tree .leaf{width:calc(136 * var(--u));box-sizing:border-box}
+.tb-main > .tbr > .tn-w > .tn{width:calc(100 * var(--u));box-sizing:border-box}
+.tbr.lf{padding-right:var(--c)}
+.rt,.out{position:absolute;right:0;top:0;bottom:0}
+.rt{width:var(--c)}
+.out{width:calc(40 * var(--u))}
+.rt::before,.out::before{content:"";position:absolute;left:0;top:50%;width:100%;border-top:1px solid #0B0B14}
+.rt::after,.out::after{content:"";position:absolute;right:0;top:0;bottom:0;border-right:1px solid #0B0B14}
+.tbr.lf:first-child > .rt::after,.tb-main > .tbr:first-child > .out::after{top:50%}
+.tbr.lf:last-child > .rt::after,.tb-main > .tbr:last-child > .out::after{bottom:50%}
+.tb-main > .tbr{padding-right:calc(40 * var(--u))}
+.sug-w{position:relative;flex:none;display:flex;align-items:center;padding-left:calc(36 * var(--u))}
+.sug-w::before{content:"";position:absolute;left:0;top:50%;width:calc(36 * var(--u));border-top:1px solid #0B0B14}
+.sug-w::after{content:"";position:absolute;left:calc(28 * var(--u));top:50%;width:calc(7 * var(--u));height:calc(7 * var(--u));border-top:1.5px solid #0B0B14;border-right:1.5px solid #0B0B14;transform:translateY(-50%) rotate(45deg)}
 @media (max-width:1179px),(max-aspect-ratio:1/1){
 .photo .vis{padding:calc(24 * var(--u)) calc(16 * var(--u)) calc(110 * var(--u))}
 .tree{font-size:calc(13 * var(--u))}
@@ -358,4 +372,16 @@ img.ab{width:100% !important}
 .tn-w{padding-right:calc(14 * var(--u))}
 .tn-w.has::after,.tbr::before{width:calc(14 * var(--u))}
 .tbr{padding-left:calc(14 * var(--u))}
+.tree{--c:calc(14 * var(--u));font-size:calc(12 * var(--u))}
+.tree-root{display:none}
+.tb-main > .tbr{padding-left:0;padding-right:calc(16 * var(--u))}
+.tb-main > .tbr::before,.tb-main > .tbr::after{display:none}
+.tree .leaf{width:calc(114 * var(--u))}
+.tb-main > .tbr > .tn-w > .tn{width:calc(82 * var(--u))}
+.tbr.lf{padding-right:calc(14 * var(--u))}
+.rt{width:calc(14 * var(--u))}
+.out{width:calc(16 * var(--u))}
+.sug-w{padding-left:calc(24 * var(--u))}
+.sug-w::before{width:calc(24 * var(--u))}
+.sug-w::after{left:calc(16 * var(--u))}
 }

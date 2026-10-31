@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Split from '../components/Split.astro';
 import Hd from '../components/Hd.astro';
-import Timeline from '../components/Timeline.astro';
 import ProcessDiagram from '../components/ProcessDiagram.astro';
 import FindingsDiagram from '../components/FindingsDiagram.astro';
 import ScopeTree from '../components/ScopeTree.astro';
@@ -18,15 +17,6 @@ const scope = [
   { label: 'Fokus', leaves: ['Henkilöasiakkaat', 'Autovakuutus'] },
   { label: 'Kanavat', leaves: ['Mobiilisovellus', 'Verkkopalvelu'] },
   { label: 'Vaiheet', leaves: ['Ostaminen', 'Hallinta', 'Vahinkoilmoitus'] },
-];
-const steps = [
-  { cls: 'g-bm', label: 'LOKA–JOULUKUU 2024', cols: 'c5', steps: [
-    { no: 1, title: 'Kick-off ja rajaus', text: 'Yhtiön sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.' },
-    { no: 2, title: 'Desk study', text: 'kilpailijoiden julkinen tieto: sovellukset, kehittäjäportaalit ja tekoälyratkaisut.' },
-    { no: 3, title: 'Asiakastutkimus', text: '11 kilpailijoiden asiakasta, joilla autovakuutus ja korvausasia viimeisen 12 kk aikana. Jokainen teki kyselyn, ja vastaukset varmistettiin yksilöhaastattelussa.' },
-    { no: 4, title: 'Mystery shopping', text: 'kirjautumattoman ostopolun vaiheet dokumentoitiin jokaiselta yhtiöltä.' },
-    { no: 5, title: 'Analyysi', text: 'yhtiö- ja maakohtaiset kypsyysarviot (matala–keskitaso–korkea), yhtiön oma arvio samalla kehikolla ja pohjoismainen synteesi.' },
-  ] },
 ];
 ---
 <Layout title="Pohjoismainen vakuutusyhtiö – Kilpailijabenchmarkkaus – Portfolio 2026" description="Pohjoismainen kilpailijabenchmarkkaus: kymmenen vakuuttajaa, neljä markkinaa ja yhteinen faktapohja pohjoismaisen vakuutusyhtiön digitaalisen kehityksen johdolle." current="works" next={{ href: "index.html", label: "Works" }} lang="fi" noindex>
@@ -96,17 +86,30 @@ Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. K
 </div>
 </section>
 
-<section class="fold fold2">
-<div class="top">
-<div class="top-l">
+<section class="fold">
+<div class="hd" style="max-width:calc(900 * var(--u))">
 <h2 class="h">Viisi vaihetta</h2>
 <p class="sans lead">Vertailussa oli 10 kilpailijaa Suomessa, Ruotsissa, Norjassa ja Tanskassa. Työ eteni viidessä vaiheessa.</p>
-</div>
-<div class="serif copy" style="max-width:calc(440 * var(--u))">
+<div class="serif copy" style="max-width:calc(640 * var(--u))">
 <p>Ydintiimimme teki kyselyt ja haastattelut, desk studyn, mystery shoppingin sekä kilpailijoiden digikanavien, sovellusten ja teknologiavalintojen analyysin itse.</p>
 </div>
 </div>
-<Timeline groups={steps} />
+<div class="rowpad" style="padding-top:calc(36 * var(--u))">
+<div class="tagline"><span class="tag">Loka–joulukuu 2024</span><span class="line"></span></div>
+<div class="flow">
+<div class="fb s1"><span class="fn">1. vaihe</span><b>Kick-off ja rajaus</b><p>Yhtiön sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.</p></div>
+<div class="arw a12"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+<div class="fb s2"><span class="fn">2. vaihe</span><b>Desk study</b><p>Kilpailijoiden julkinen tieto: sovellukset, kehittäjäportaalit ja tekoälyratkaisut.</p></div>
+<div class="arw a23"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+<div class="fb s3"><span class="fn">3. vaihe</span><b>Asiakastutkimus</b><p>11 kilpailijoiden asiakasta, joilla autovakuutus ja korvausasia viimeisen 12 kk aikana. Jokainen teki kyselyn, ja vastaukset varmistettiin yksilöhaastattelussa.</p></div>
+<div class="arw a34"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+<div class="fb s4"><span class="fn">4. vaihe</span><b>Mystery shopping</b><p>Kirjautumattoman ostopolun vaiheet dokumentoitiin jokaiselta yhtiöltä.</p></div>
+<div class="arw a45"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+<div class="fb s5"><span class="fn">5. vaihe</span><b>Analyysi</b><p>Yhtiö- ja maakohtaiset kypsyysarviot (matala–keskitaso–korkea), yhtiön oma arvio samalla kehikolla ja pohjoismainen synteesi.</p></div>
+<div class="arw a5e"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+<div class="fb se"><span class="fn">Tulos</span><b>Johtopäätökset</b></div>
+</div>
+</div>
 </section>
 
 <section class="fold">

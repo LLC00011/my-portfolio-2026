@@ -305,3 +305,17 @@ img.ab{width:100% !important}
 .pd-tall{display:block;max-width:calc(420 * var(--u));margin:0 auto}
 .pd-svg .pd-t{font-size:14px}
 }
+
+/* Iceberg framework: what the customer sees above the waterline, the capabilities below it */
+.berg{position:relative;z-index:2;display:grid;grid-template-columns:calc(360 * var(--u)) minmax(0,1fr);grid-template-rows:auto 0 auto;column-gap:calc(48 * var(--u));padding:calc(36 * var(--u)) calc(135 * var(--u)) calc(40 * var(--u))}
+.berg-shape{position:relative;grid-column:1}
+.berg-shape svg,.berg-shape .hatch{position:absolute;inset:0;width:100%;height:100%;display:block}
+.berg-sub .hatch{clip-path:polygon(25% 0,75% 0,95% 100%,5% 100%);background:repeating-linear-gradient(45deg,rgba(11,11,20,0.22) 0 1px,transparent 1px 6px)}
+.berg-water{grid-column:1 / -1;border-top:1px dashed #0B0B14}
+.berg-text{grid-column:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:calc(32 * var(--u));align-items:center;padding:calc(30 * var(--u)) 0}
+.berg .col ul{gap:calc(9 * var(--u))}
+@media (max-width:1179px),(max-aspect-ratio:1/1){
+.berg{grid-template-columns:calc(104 * var(--u)) minmax(0,1fr);column-gap:calc(16 * var(--u));padding:calc(32 * var(--u)) calc(24 * var(--u)) calc(110 * var(--u))}
+.berg-text{grid-template-columns:minmax(0,1fr);gap:calc(20 * var(--u));align-items:start;padding:calc(24 * var(--u)) 0}
+.berg .col h3{font-size:calc(16.5 * var(--u))}
+}

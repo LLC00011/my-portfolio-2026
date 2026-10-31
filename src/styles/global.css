@@ -1,7 +1,7 @@
 /* Portfolio 2026. Every size is calc(N * var(--u)): 1 design px at a 1350 x 800 desktop page, scaled with the viewport width.
    Mobile (narrow or portrait) switches to a 390 px wide base. */
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#FAFAFA;--u:calc(100vw / 1350);--pu:clamp(0.9px,var(--u),1.15px);--pm:calc(18 * var(--pu))}
+body{margin:0;display:flex;flex-direction:column;min-height:100vh;background:#FAFAFA;--u:calc(100vw / 1350);--pu:clamp(0.9px,var(--u),1.15px);--pm:calc(18 * var(--pu))}
 a{color:inherit;text-decoration:none}
 /* Astro adds width/height attributes to images; let CSS aspect-ratio and sizes decide */
 img{height:auto}
@@ -427,4 +427,13 @@ img.ab{width:100% !important}
 .fb b{font-size:calc(17 * var(--u))}
 .fb p{font-size:calc(15 * var(--u))}
 .fb.se{padding:calc(20 * var(--u)) calc(16 * var(--u))}
+}
+
+/* Footer: 45 px, white, hairline on top. On case pages it ends the scrolling area and is its own snap stop. */
+body > .page{flex:1 0 auto}
+.site-footer{flex:none;box-sizing:border-box;height:45px;margin-top:auto;display:flex;align-items:center;padding:0 calc(27 * var(--u)) 0 calc(var(--pm) * 2 + 54 * var(--pu));background:#fff;border-top:1px solid rgba(11,11,20,0.14);font-family:'Inter',system-ui,sans-serif;font-size:12px;letter-spacing:0.02em;color:#6B6B66}
+.site-footer p{margin:0}
+.snap .site-footer{scroll-snap-align:end}
+@media (max-width:1179px),(max-aspect-ratio:1/1){
+.site-footer{padding:0 calc(24 * var(--u))}
 }

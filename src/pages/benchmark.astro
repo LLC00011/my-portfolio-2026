@@ -6,35 +6,34 @@ import Hd from '../components/Hd.astro';
 import Timeline from '../components/Timeline.astro';
 
 // DRAFT. Not linked from the Works index and hidden from search engines (noindex).
-// The project was under NDA: get If's publishing permission before this goes public.
-//  - No company-specific ratings, no If self-assessment and no market leaders' names, in the text or in images.
+// The project was under NDA: the client is anonymised ("Nordic insurer"), but check the client's publishing permission before this goes public.
+//  - No company-specific ratings, no client self-assessment and no market leaders' names, in the text or in images.
 //  - Good images: the evaluation framework without values, the process diagram, an anonymised country comparison structure.
-//  - Fallback: a fully anonymous version ("Nordic non-life insurer" instead of If).
 // All images are grey placeholders until the visuals are ready.
 const steps = [
   { cls: 'g-if', label: 'LOKA–JOULUKUU 2024', cols: 'c5', steps: [
-    { no: 1, title: 'Kick-off ja rajaus', text: 'Ifin sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.' },
+    { no: 1, title: 'Kick-off ja rajaus', text: 'Yhtiön sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.' },
     { no: 2, title: 'Desk study', text: 'kilpailijoiden julkinen tieto: sovellukset, kehittäjäportaalit ja tekoälyratkaisut.' },
     { no: 3, title: 'Asiakastutkimus', text: '11 kilpailijoiden asiakasta, joilla autovakuutus ja korvausasia viimeisen 12 kk aikana. Jokainen teki kyselyn, ja vastaukset varmistettiin yksilöhaastattelussa.' },
     { no: 4, title: 'Mystery shopping', text: 'kirjautumattoman ostopolun vaiheet dokumentoitiin jokaiselta yhtiöltä.' },
-    { no: 5, title: 'Analyysi', text: 'yhtiö- ja maakohtaiset kypsyysarviot (matala–keskitaso–korkea), Ifin oma arvio samalla kehikolla ja pohjoismainen synteesi.' },
+    { no: 5, title: 'Analyysi', text: 'yhtiö- ja maakohtaiset kypsyysarviot (matala–keskitaso–korkea), yhtiön oma arvio samalla kehikolla ja pohjoismainen synteesi.' },
   ] },
 ];
 ---
-<Layout title="If – Digitaalisten kanavien kilpailijabenchmarkkaus – Portfolio 2026" description="Pohjoismainen kilpailijabenchmarkkaus: kymmenen vakuuttajaa, neljä markkinaa ja yhteinen faktapohja Ifin digitaalisen kehityksen johdolle." current="works" next={{ href: "index.html", label: "Works" }} lang="fi" noindex>
+<Layout title="Pohjoismainen vakuutusyhtiö – Kilpailijabenchmarkkaus – Portfolio 2026" description="Pohjoismainen kilpailijabenchmarkkaus: kymmenen vakuuttajaa, neljä markkinaa ja yhteinen faktapohja pohjoismaisen vakuutusyhtiön digitaalisen kehityksen johdolle." current="works" next={{ href: "index.html", label: "Works" }} lang="fi" noindex>
 <div class="snap">
-<Hero alt="If – Digitaalisten kanavien kilpailijabenchmarkkaus" heading="If – Digitaalisten kanavien kilpailijabenchmarkkaus" placeholder="Hero-kuva: tulossa" />
+<Hero alt="Pohjoismainen vakuutusyhtiö – Digitaalisten kanavien kilpailijabenchmarkkaus" heading="Pohjoismainen vakuutusyhtiö – Digitaalisten kanavien kilpailijabenchmarkkaus" placeholder="Hero-kuva: tulossa" />
 
 <Split alt="Kuvan paikka: arviointikehikko ilman arvoja" placeholder="Kuva: arviointikehikko ilman arvoja" narrow>
 <Fragment slot="title">Pohjoismainen benchmark</Fragment>
-<Fragment slot="lead">Rakensimme Ifille puolueettoman kuvan siitä, missä sen digitaaliset palvelut seisovat pohjoismaisessa kilpailussa.</Fragment>
-<p>Kahdessa kuukaudessa vertasimme kymmentä vakuuttajaa neljällä markkinalla samalla kehikolla ja kokosimme tuloksista johdolle pohjan, joka ohjasi Ifin seuraavan vuoden kehitysbudjetteja.</p>
+<Fragment slot="lead">Rakensimme pohjoismaiselle vakuutusyhtiölle puolueettoman kuvan siitä, missä sen digitaaliset palvelut seisovat pohjoismaisessa kilpailussa.</Fragment>
+<p>Kahdessa kuukaudessa vertasimme kymmentä vakuuttajaa neljällä markkinalla samalla kehikolla ja kokosimme tuloksista johdolle pohjan, joka ohjasi yhtiön seuraavan vuoden kehitysbudjetteja.</p>
 <div class="facts">
-<p><b>Asiakas</b> If Vahinkovakuutus, BA Private DS&amp;CX</p>
+<p><b>Asiakas</b> Pohjoismainen vakuutusyhtiö</p>
 <p><b>Ajankohta</b> Loka–joulukuu 2024</p>
 <p><b>Markkinat</b> Suomi, Ruotsi, Norja, Tanska</p>
 <p><b>Fokus</b> Henkilöasiakkaiden autovakuutus, mobiilisovellus ja verkkopalvelu</p>
-<p><b>Tiimi</b> Lasse Lakela (Principal Designer, Partner) ja Jukka Karimaa (Strategist), Hellon; Ifin ydintiimi ja 8 hengen referenssiryhmä</p>
+<p><b>Tiimi</b> Lasse Lakela (Principal Designer, Partner) ja Jukka Karimaa (Strategist), Hellon; asiakkaan ydintiimi ja 8 hengen referenssiryhmä</p>
 <p><b>Oma rooli</b> Projektin toteutus, vakuutusliiketoiminnan ja digitaalisen transformaation näkökulma, sidosryhmätyö</p>
 </div>
 </Split>
@@ -42,7 +41,7 @@ const steps = [
 <section class="fold">
 <Hd style="max-width:calc(760 * var(--u))">
 <Fragment slot="title">Haaste</Fragment>
-If on Pohjoismaiden suurin vahinkovakuuttaja. Se on investoinut paljon If Mobileen ja Omiin sivuihin, mutta kuva kilpailuasemasta rakentui pitkälti talon sisältä. Hanke oli puhtaasti strateginen: If halusi katsoa kilpailijoita oman kuplansa ulkopuolelta.
+Yhtiö on Pohjoismaiden suurin vahinkovakuuttaja. Se on investoinut paljon omiin digipalveluihinsa, mutta kuva kilpailuasemasta rakentui pitkälti talon sisältä. Hanke oli puhtaasti strateginen: yhtiö halusi katsoa kilpailijoita oman kuplansa ulkopuolelta.
 </Hd>
 <div class="rowpad">
 <div class="stats3">
@@ -53,7 +52,7 @@ If on Pohjoismaiden suurin vahinkovakuuttaja. Se on investoinut paljon If Mobile
 </div>
 <div class="cols2">
 <div class="col">
-<h3>If halusi tietää kolme asiaa</h3>
+<h3>Yhtiö halusi tietää kolme asiaa</h3>
 <ul>
 <li>Kuinka kypsiä sen digipalvelut ovat verrattuna keskeisiin kilpailijoihin kussakin maassa?</li>
 <li>Mitkä ovat todelliset kilpailuedut, joista voi viestiä sisäisesti ja ulkoisesti?</li>
@@ -119,7 +118,7 @@ Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. K
 <section class="fold">
 <Hd style="max-width:calc(760 * var(--u))">
 <Fragment slot="title">Löydökset</Fragment>
-Lopputuloksena syntyi 109-sivuinen benchmark-raportti, joka antaa Ifille yhteisen faktapohjan kilpailuasemasta jokaisella neljällä markkinalla. Julkaistavissa olevat yleistason havainnot:
+Lopputuloksena syntyi 109-sivuinen benchmark-raportti, joka antaa yhtiölle yhteisen faktapohjan kilpailuasemasta jokaisella neljällä markkinalla. Julkaistavissa olevat yleistason havainnot:
 </Hd>
 <div class="cols2">
 <div class="col">
@@ -141,7 +140,7 @@ Lopputuloksena syntyi 109-sivuinen benchmark-raportti, joka antaa Ifille yhteise
 <section class="fold">
 <Hd style="max-width:calc(760 * var(--u))">
 <Fragment slot="title">Tulokset ja vaikutus</Fragment>
-Ifille raportti toi näkyviin vahvuudet, esimerkiksi sujuvan vahinkoilmoituksen kaikissa kanavissa ja lyhyen kirjautumattoman ostopolun, sekä markkinakohtaiset aukot, joihin kehitystä voi kohdistaa.
+Yhtiölle raportti toi näkyviin vahvuudet, esimerkiksi sujuvan vahinkoilmoituksen kaikissa kanavissa ja lyhyen kirjautumattoman ostopolun, sekä markkinakohtaiset aukot, joihin kehitystä voi kohdistaa.
 </Hd>
 <div class="rowpad">
 <div class="stats3">
@@ -153,7 +152,7 @@ Ifille raportti toi näkyviin vahvuudet, esimerkiksi sujuvan vahinkoilmoituksen 
 <div class="cols2">
 <div class="col">
 <h3>Vaikutus</h3>
-<p class="strong">Ulkopuolinen näkymä vahvisti Ifin oman tulkinnan markkinasta ja antoi sille faktapohjan. Tulokset ohjasivat seuraavan vuoden kehitysbudjettien kohdentamista.</p>
+<p class="strong">Ulkopuolinen näkymä vahvisti yhtiön oman tulkinnan markkinasta ja antoi sille faktapohjan. Tulokset ohjasivat seuraavan vuoden kehitysbudjettien kohdentamista.</p>
 </div>
 </div>
 </section>
@@ -167,7 +166,7 @@ Ifille raportti toi näkyviin vahvuudet, esimerkiksi sujuvan vahinkoilmoituksen 
 <li>Asiakaskyselyt ja -haastattelut, desk study ja kirjautumattomien ostopolkujen mystery shopping</li>
 <li>Kilpailijoiden digikanavien, sovellusten ja teknologiavalintojen analyysi</li>
 <li>109-sivuisen loppuraportin, kypsyysarvioiden ja pohjoismaisen synteesin laatiminen</li>
-<li>Tulosten esittely Ifin sidosryhmille</li>
+<li>Tulosten esittely yhtiön sidosryhmille</li>
 </ul>
 </div>
 </Split>

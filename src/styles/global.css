@@ -429,18 +429,23 @@ img.ab{width:100% !important}
 .fb.se{padding:calc(20 * var(--u)) calc(16 * var(--u))}
 }
 
-/* Rowing boat on the iceberg waterline */
+/* Paddling canoe on the iceberg waterline */
 .berg-text.bt-up{padding-bottom:calc(42 * var(--u))}
 .berg-text.bt-down{padding-top:calc(38 * var(--u))}
-.boat{position:absolute;left:0;bottom:calc(-9.2 * var(--u));width:calc(70 * var(--u));z-index:3;pointer-events:none;animation:boat-pass 26s linear -7s infinite}
+.boat{position:absolute;left:0;bottom:calc(-9.5 * var(--u));width:calc(76 * var(--u));z-index:3;pointer-events:none;animation:boat-pass 26s linear -7s infinite}
 .boat svg{display:block;width:100%;height:auto;overflow:visible;transform-origin:50% 75%;animation:boat-bob 2.4s ease-in-out infinite}
 @keyframes boat-pass{from{left:calc(-215 * var(--u))}to{left:calc(100% + 160 * var(--u))}}
-@keyframes boat-bob{0%,100%{transform:translateY(0) rotate(-0.8deg)}50%{transform:translateY(calc(-1.5 * var(--u))) rotate(0.8deg)}}
+@keyframes boat-bob{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(calc(-2 * var(--u))) rotate(1.2deg)}}
+.ripples ellipse{transform-box:fill-box;transform-origin:center;opacity:0;animation:ripple 2.4s ease-out infinite}
+.ripples ellipse:nth-child(2){animation-delay:0.8s}
+.ripples ellipse:nth-child(3){animation-delay:1.6s}
+@keyframes ripple{0%{opacity:0.8;transform:translateX(0) scale(0.5)}100%{opacity:0;transform:translateX(-20px) scale(2)}}
 @media (max-width:1179px),(max-aspect-ratio:1/1){
-.boat{width:calc(58 * var(--u));bottom:calc(-7.6 * var(--u))}
+.boat{width:calc(62 * var(--u));bottom:calc(-7.8 * var(--u))}
 @keyframes boat-pass{from{left:calc(-100 * var(--u))}to{left:calc(100% + 60 * var(--u))}}
 }
 @media (prefers-reduced-motion:reduce){
 .boat{animation:none;left:60%}
 .boat svg{animation:none}
+.ripples{display:none}
 }

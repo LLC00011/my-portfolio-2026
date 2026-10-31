@@ -7,42 +7,40 @@ import ProcessDiagram from '../components/ProcessDiagram.astro';
 import FindingsDiagram from '../components/FindingsDiagram.astro';
 import ScopeTree from '../components/ScopeTree.astro';
 
-// DRAFT. Not linked from the Works index and hidden from search engines (noindex).
+// DRAFT. Hidden from search engines (noindex).
 // The project was under NDA: the client is anonymised ("Nordic insurer"), but check the client's publishing permission before this goes public.
 //  - No company-specific ratings, no client self-assessment and no market leaders' names, in the text or in images.
-//  - Good images: the evaluation framework without values, the process diagram, an anonymised country comparison structure.
-// All images are grey placeholders until the visuals are ready.
 const scope = [
-  { label: 'Markkinat', leaves: ['Suomi', 'Ruotsi', 'Norja', 'Tanska'] },
-  { label: 'Fokus', leaves: ['Henkilöasiakkaat', 'Autovakuutus'] },
-  { label: 'Kanavat', leaves: ['Mobiilisovellus', 'Verkkopalvelu'] },
-  { label: 'Vaiheet', leaves: ['Ostaminen', 'Hallinta', 'Vahinkoilmoitus'] },
+  { label: 'Markets', leaves: ['Finland', 'Sweden', 'Norway', 'Denmark'] },
+  { label: 'Focus', leaves: ['Consumers', 'Car insurance'] },
+  { label: 'Channels', leaves: ['Mobile app', 'Web service'] },
+  { label: 'Journey', leaves: ['Buying', 'Managing', 'Claims'] },
 ];
 ---
-<Layout title="Pohjoismainen vakuutusyhtiö – Kilpailijabenchmarkkaus – Portfolio 2026" description="Pohjoismainen kilpailijabenchmarkkaus: kymmenen vakuuttajaa, neljä markkinaa ja yhteinen faktapohja pohjoismaisen vakuutusyhtiön digitaalisen kehityksen johdolle." current="works" next={{ href: "index.html", label: "Works" }} lang="fi" noindex>
+<Layout title="Benchmark study – Nordic insurer – Portfolio 2026" description="A competitor benchmark of ten insurers across four Nordic markets, giving the leadership of a Nordic insurer a shared fact base for digital development." current="works" next={{ href: "index.html", label: "Works" }} noindex>
 <div class="snap">
 <Hero image="nordic-hero" alt="Cover collage in Nordic landscapes and everyday scenes: a couple with mugs at the back of a car by a lake, a car on a forest road, a cup on a rainy windowsill and a view in a car mirror, with the word NORDIC in large white letters" heading="Benchmark study – Nordic insurer" />
 
 <Split narrow snug>
-<Fragment slot="visual"><ScopeTree label="Benchmarkin rajaus: markkinat Suomi, Ruotsi, Norja ja Tanska; fokus henkilöasiakkaat ja autovakuutus; kanavat mobiilisovellus ja verkkopalvelu; vaiheet ostaminen, hallinta ja vahinkoilmoitus. Kaikki osat johtavat johtopäätöksiin." root="Benchmark" end="Johto&shy;päätökset" branches={scope} /></Fragment>
-<Fragment slot="title">Pohjoismainen benchmark</Fragment>
-<Fragment slot="lead">Puolueeton kuva siitä, missä vakuutusyhtiön digitaaliset palvelut seisovat pohjoismaisessa kilpailussa.</Fragment>
-<p>Yhtiö on Pohjoismaiden suurin vahinkovakuuttaja, mutta kuva kilpailuasemasta rakentui pitkälti talon sisältä. Loka–joulukuussa 2024 tiimimme vertasi yhdessä asiakkaan ydintiimin ja 8 hengen referenssiryhmän kanssa kymmentä vakuuttajaa neljällä markkinalla samalla kehikolla.</p>
+<Fragment slot="visual"><ScopeTree label="Scope of the benchmark: markets Finland, Sweden, Norway and Denmark; focus on consumers and car insurance; channels mobile app and web service; journey phases buying, managing and claims. All parts lead to the conclusions." root="Benchmark" end="Conclusions" branches={scope} /></Fragment>
+<Fragment slot="title">Nordic benchmark</Fragment>
+<Fragment slot="lead">An impartial view of where the insurer’s digital services stand in Nordic competition.</Fragment>
+<p>The company is the largest non-life insurer in the Nordics, but its picture of its competitive position was built largely from the inside. In October–December 2024 our team, together with the client’s core team and an eight-person reference group, compared ten insurers across four markets with one framework.</p>
 <div class="col" style="gap:calc(12 * var(--u))">
-<p class="strong">Yhtiö halusi tietää kolme asiaa:</p>
+<p class="strong">The company wanted to know three things:</p>
 <ul style="gap:calc(8 * var(--u))">
-<li>Kuinka kypsiä digipalvelut ovat kilpailijoihin verrattuna kussakin maassa?</li>
-<li>Mitkä ovat todelliset kilpailuedut, joista voi viestiä?</li>
-<li>Mihin kehitys kannattaa kohdistaa?</li>
+<li>How mature are its digital services compared with competitors in each country?</li>
+<li>What are the real competitive advantages it can communicate?</li>
+<li>Where should development be focused?</li>
 </ul>
 </div>
-<p>Vaikeutena oli, että kilpailijoiden kirjautuneen asiakkaan näkymät ovat suljettuja. Suunnittelimme arviointikehikon ja tutkimusasetelman niin, että tieto saatiin heidän omilta asiakkailtaan GDPR-yhteensopivasti ja tekijänoikeudet huomioiden.</p>
+<p>The difficulty was that competitors’ logged-in customer views are closed. We designed the evaluation framework and the research setup so that the information could be gathered from their own customers in a GDPR-compliant way and with copyright respected.</p>
 </Split>
 
 <section class="fold">
 <Hd style="max-width:calc(760 * var(--u))">
-<Fragment slot="title">Lähestymistapa</Fragment>
-Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. Kehikko jakautui kahteen osaan: asiakkaan digitaalinen itsenäisyys ja digipalveluiden taustakyvykkyydet.
+<Fragment slot="title">Approach</Fragment>
+We built an evaluation framework that assessed every company in the same way. It had two parts: the customer’s digital self-service and the back-end capabilities of the digital services.
 </Hd>
 <div class="berg">
 <div class="berg-shape">
@@ -50,16 +48,16 @@ Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. K
 </div>
 <div class="berg-text">
 <div class="col">
-<h3>Asiakkaan itsenäisyys</h3>
-<p class="strong">Mitä asiakas pystyy itse tekemään sovelluksessa ja verkossa.</p>
+<h3>Customer self-service</h3>
+<p class="strong">What the customer can do on their own in the app and online.</p>
 </div>
 <div class="col">
 <ul>
-<li>Käyttäminen</li>
-<li>Viestintä</li>
-<li>Personointi ja lisämyynti</li>
-<li>Laskutuksen hallinta</li>
-<li>Vakuutusten ja profiilin muokkaus</li>
+<li>Using the service</li>
+<li>Communication</li>
+<li>Personalisation and cross-sell</li>
+<li>Managing billing</li>
+<li>Editing policies and profile</li>
 </ul>
 </div>
 </div>
@@ -70,16 +68,16 @@ Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. K
 </div>
 <div class="berg-text">
 <div class="col">
-<h3>Taustakyvykkyydet</h3>
-<p class="strong">Mitä digipalveluiden taustalla on, mutta asiakas ei suoraan näe.</p>
+<h3>Back-end capabilities</h3>
+<p class="strong">What sits behind the digital services but is not directly visible to the customer.</p>
 </div>
 <div class="col">
 <ul>
-<li>Personointi</li>
-<li>Kanavastrategia: natiivi, cross-platform vai wrapper</li>
-<li>Asiakkaalle näkyvä tekoäly</li>
-<li>Rajapinnat ja kehittäjäportaalit</li>
-<li>Kirjautumaton ostopolku</li>
+<li>Personalisation</li>
+<li>Channel strategy: native, cross-platform or wrapper</li>
+<li>Customer-facing AI</li>
+<li>APIs and developer portals</li>
+<li>Logged-out purchase journey</li>
 </ul>
 </div>
 </div>
@@ -88,69 +86,69 @@ Rakensimme arviointikehikon, jolla jokainen yhtiö arvioitiin samalla tavalla. K
 
 <section class="fold">
 <div class="hd" style="max-width:calc(900 * var(--u))">
-<h2 class="h">Viisi vaihetta</h2>
-<p class="sans lead">Vertailussa oli 10 kilpailijaa Suomessa, Ruotsissa, Norjassa ja Tanskassa. Työ eteni viidessä vaiheessa.</p>
+<h2 class="h">Five steps</h2>
+<p class="sans lead">The comparison covered 10 competitors in Finland, Sweden, Norway and Denmark. The work proceeded in five steps.</p>
 <div class="serif copy" style="max-width:calc(640 * var(--u))">
-<p>Ydintiimimme teki kyselyt ja haastattelut, desk studyn, mystery shoppingin sekä kilpailijoiden digikanavien, sovellusten ja teknologiavalintojen analyysin itse.</p>
+<p>Our core team did the surveys and interviews, the desk study, the mystery shopping and the analysis of competitors’ digital channels, apps and technology choices ourselves.</p>
 </div>
 </div>
 <div class="rowpad" style="padding-top:calc(36 * var(--u))">
-<div class="tagline"><span class="tag">Loka–joulukuu 2024</span><span class="line"></span></div>
+<div class="tagline"><span class="tag">Oct–Dec 2024</span><span class="line"></span></div>
 <div class="flow">
-<div class="fb s1"><span class="fn">1. vaihe</span><b>Kick-off ja rajaus</b><p>Yhtiön sisäiset haastattelut ja dokumentaatio, scope validoitiin ydintiimin ja referenssiryhmän kanssa.</p></div>
+<div class="fb s1"><span class="fn">Step 1</span><b>Kick-off and scoping</b><p>The company’s internal interviews and documentation; the scope was validated with the core team and the reference group.</p></div>
 <div class="arw a12"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-<div class="fb s2"><span class="fn">2. vaihe</span><b>Desk study</b><p>Kilpailijoiden julkinen tieto: sovellukset, kehittäjäportaalit ja tekoälyratkaisut.</p></div>
+<div class="fb s2"><span class="fn">Step 2</span><b>Desk study</b><p>Competitors’ public information: apps, developer portals and AI solutions.</p></div>
 <div class="arw a23"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-<div class="fb s3"><span class="fn">3. vaihe</span><b>Asiakastutkimus</b><p>11 kilpailijoiden asiakasta, joilla autovakuutus ja korvausasia viimeisen 12 kk aikana. Jokainen teki kyselyn, ja vastaukset varmistettiin yksilöhaastattelussa.</p></div>
+<div class="fb s3"><span class="fn">Step 3</span><b>Customer research</b><p>11 customers of competitors who had car insurance and a claim in the last 12 months. Each answered a survey, and the answers were verified in a one-to-one interview.</p></div>
 <div class="wrap"><span class="wv"></span></div>
-<div class="fb s4"><span class="fn">4. vaihe</span><b>Mystery shopping</b><p>Kirjautumattoman ostopolun vaiheet dokumentoitiin jokaiselta yhtiöltä.</p></div>
+<div class="fb s4"><span class="fn">Step 4</span><b>Mystery shopping</b><p>The steps of the logged-out purchase journey were documented for every company.</p></div>
 <div class="arw a45"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-<div class="fb s5"><span class="fn">5. vaihe</span><b>Analyysi</b><p>Yhtiö- ja maakohtaiset kypsyysarviot (matala–keskitaso–korkea), yhtiön oma arvio samalla kehikolla ja pohjoismainen synteesi.</p></div>
+<div class="fb s5"><span class="fn">Step 5</span><b>Analysis</b><p>Company and country maturity assessments (low–medium–high), the company’s own assessment on the same framework and the Nordic synthesis.</p></div>
 <div class="arw a5e"><svg class="ar" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6H38 M32 1L38 6L32 11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-<div class="fb se"><span class="fn">Tulos</span><b>Johtopäätökset</b></div>
+<div class="fb se"><span class="fn">Result</span><b>Conclusions</b></div>
 </div>
 </div>
 </section>
 
 <section class="fold">
 <Hd style="max-width:calc(900 * var(--u))">
-<Fragment slot="title">Aineistosta päätöksiksi</Fragment>
-Kolme aineistolähdettä, yksi kehikko. LLM avusti analyysissä, havaintojen purussa ja yhteenvetojen muotoilussa, ja ihminen validoi jokaisen lopputuloksen: arviot tarkistettiin kyselyvastauksia, haastatteluja ja desk studya vasten ennen pohjoismaista synteesiä.
+<Fragment slot="title">From data to decisions</Fragment>
+Three data sources, one framework. An LLM assisted with the analysis, with unpacking findings and with phrasing summaries, and a human validated every result: assessments were checked against survey answers, interviews and the desk study before the Nordic synthesis.
 </Hd>
 <div class="pd">
-<ProcessDiagram label="Prosessikaavio: desk study, asiakastutkimus ja mystery shopping syöttävät yhteistä arviointikehikkoa, josta syntyvät vahvuudet, markkina-aukot ja kehityksen suuntaus. Arviot validoidaan aineistoa vasten." note="Validointi: arviot tarkistettiin aineistoa vasten" />
+<ProcessDiagram label="Process diagram: desk study, customer research and mystery shopping feed a shared evaluation framework, which produces strengths, market gaps and a development direction. Assessments are validated against the data." note="Validation: assessments were checked against the data" />
 </div>
 </section>
 
 <section class="fold">
 <Hd style="max-width:calc(900 * var(--u))">
-<Fragment slot="title">Löydökset</Fragment>
-Kilpailijat vertailtiin samalla kehikolla neljällä markkinalla. Julkaistavissa olevat yleistason havainnot asettuvat kypsyystasoille näin.
+<Fragment slot="title">Findings</Fragment>
+Competitors were compared with one framework across four markets. The industry-level findings that can be published sit at the maturity levels like this.
 </Hd>
 <div class="fd">
 <div class="fd-vis">
-<FindingsDiagram label="Kypsyyskartta: asiakkaan itsenäisyys vaaka-akselilla ja taustakyvykkyydet pystyakselilla. Käyttäminen ja viestintä ovat korkealla tasolla, korvausasiat ja mobiilistrategiat keskitasolla sekä personointi ja tekoäly matalalla. Suomi on korkealla tasolla, Ruotsi, Norja ja Tanska keskitasolla." />
+<FindingsDiagram label="Maturity map: customer self-service on the horizontal axis and back-end capabilities on the vertical axis. Using the service and communication are at the high level, claims and mobile strategies at the medium level, and personalisation and AI at the low level. Finland is at the high level, Sweden, Norway and Denmark at the medium level." />
 </div>
 <div class="fd-text">
 <div class="col">
-<div class="tagline"><span class="tag">Korkea taso</span><span class="line"></span></div>
+<div class="tagline"><span class="tag">High level</span><span class="line"></span></div>
 <ul>
-<li><b>Suomi erottui edukseen.</b> Suomen markkina oli digitaalisesti kypsin; Ruotsi, Norja ja Tanska asettuivat keskitasolle.</li>
-<li><b>Käyttäminen ja viestintä toimivat.</b> Asiakas pystyy käyttämään ja viestimään digitaalisesti hyvin.</li>
+<li><b>Finland stood out.</b> The Finnish market was the most digitally mature; Sweden, Norway and Denmark settled at the medium level.</li>
+<li><b>Using the service and communication work.</b> Customers can use and communicate digitally well.</li>
 </ul>
 </div>
 <div class="col">
-<div class="tagline"><span class="tag">Keskitaso</span><span class="line"></span></div>
+<div class="tagline"><span class="tag">Medium level</span><span class="line"></span></div>
 <ul>
-<li><b>Itsepalvelu on kaikkien suunta, mutta korvausasiat hoidetaan yhä puhelimessa.</b> Haastatellut asiakkaat soittivat mieluummin asiakaspalveluun kuin ilmoittivat vahingon digitaalisesti.</li>
-<li><b>Mobiilistrategiat vaihtelevat.</b> Natiivit sovellukset, cross-platform-ratkaisut ja wrapper-sovellukset elävät rinnakkain, myös saman yhtiön eri maissa.</li>
+<li><b>Self-service is everyone’s direction, but claims are still handled by phone.</b> Interviewed customers preferred calling customer service to reporting damage digitally.</li>
+<li><b>Mobile strategies vary.</b> Native apps, cross-platform solutions and wrapper apps live side by side, even in different countries of the same company.</li>
 </ul>
 </div>
 <div class="col">
-<div class="tagline"><span class="tag">Matala taso</span><span class="line"></span></div>
+<div class="tagline"><span class="tag">Low level</span><span class="line"></span></div>
 <ul>
-<li><b>Tekoäly näkyi puheissa, ei asiakkaan arjessa.</b> Vain yksi vertailun yhtiöistä tarjosi julkisesti generatiivista tekoälyä asiakaspalvelussa.</li>
-<li><b>Personointi ja lisämyynti olivat koko alan heikko kohta.</b> Räätälöidyt tarjoukset puuttuvat lähes kaikilta.</li>
+<li><b>AI showed up in talk, not in customers’ everyday lives.</b> Only one of the compared companies publicly offered generative AI in customer service.</li>
+<li><b>Personalisation and cross-sell were the weak spot of the whole industry.</b> Tailored offers are missing from almost everyone.</li>
 </ul>
 </div>
 </div>
@@ -159,20 +157,20 @@ Kilpailijat vertailtiin samalla kehikolla neljällä markkinalla. Julkaistavissa
 
 <section class="fold">
 <Hd style="max-width:calc(900 * var(--u))">
-<Fragment slot="title">Tulokset ja vaikutus</Fragment>
-Tiimi laati 109-sivuisen loppuraportin ja esitteli tulokset yhtiön sidosryhmille. Raportti antoi yhtiölle yhteisen faktapohjan kilpailuasemasta jokaisella neljällä markkinalla sekä näytti vahvuudet ja markkinakohtaiset aukot, joihin kehitystä voi kohdistaa. Ulkopuolinen näkymä vahvisti yhtiön oman tulkinnan markkinasta.
+<Fragment slot="title">Results and impact</Fragment>
+The team wrote the 109-page final report and presented the results to the company’s stakeholders. The report gave the company a shared fact base on its competitive position in each of the four markets and showed the strengths and market-specific gaps where development can be focused. The outside view confirmed the company’s own reading of the market.
 </Hd>
 <div class="rowpad">
 <div class="stats3">
-<div class="stat"><div class="big">109</div><div class="lab">Sivun benchmark-raportti</div></div>
-<div class="stat"><div class="big">10</div><div class="lab">Kilpailijaa</div></div>
-<div class="stat"><div class="big">4</div><div class="lab">Markkinaa</div></div>
+<div class="stat"><div class="big">109</div><div class="lab">Pages in the benchmark report</div></div>
+<div class="stat"><div class="big">10</div><div class="lab">Competitors</div></div>
+<div class="stat"><div class="big">4</div><div class="lab">Markets</div></div>
 </div>
 </div>
 <div class="rowpad">
 <div class="impact">
-<span class="cap">Vaikutus</span>
-<p>Tulokset ohjasivat seuraavan vuoden kehitysbudjettien kohdentamista.</p>
+<span class="cap">Impact</span>
+<p>The results guided how next year’s development budgets were allocated.</p>
 </div>
 </div>
 </section>

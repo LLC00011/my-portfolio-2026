@@ -24,15 +24,15 @@ const wide: Layout = {
   oy: 440,
   radii: [130, 265, 400],
   items: [
-    { dx: 79, dy: -32, lines: ['Personointi'] },
-    { dx: 37, dy: -76, lines: ['Tekoäly'] },
-    { dx: 184, dy: -74, lines: ['Korvausasiat'] },
-    { dx: 68, dy: -186, lines: ['Mobiili-', 'strategiat'] },
-    { dx: 309, dy: -125, lines: ['Käyttö ja', 'viestintä'] },
-    { dx: 235, dy: -235, lines: ['SUOMI'], cap: true },
-    { dx: 140, dy: -140, lines: ['RUOTSI', 'NORJA', 'TANSKA'], cap: true },
+    { dx: 79, dy: -32, lines: ['Personali-', 'sation'] },
+    { dx: 37, dy: -76, lines: ['AI'] },
+    { dx: 184, dy: -74, lines: ['Claims'] },
+    { dx: 68, dy: -186, lines: ['Mobile', 'strategies'] },
+    { dx: 309, dy: -125, lines: ['Using and', 'communication'] },
+    { dx: 235, dy: -235, lines: ['FINLAND'], cap: true },
+    { dx: 140, dy: -140, lines: ['SWEDEN', 'NORWAY', 'DENMARK'], cap: true },
   ],
-  ticks: [{ dx: 65, text: 'Matala' }, { dx: 198, text: 'Keskitaso' }, { dx: 333, text: 'Korkea' }],
+  ticks: [{ dx: 65, text: 'Low' }, { dx: 198, text: 'Medium' }, { dx: 333, text: 'High' }],
   tickY: 462,
   xName: { x: 260, y: 487 },
   yName: { x: 28, y: 240 },
@@ -44,15 +44,15 @@ const tall: Layout = {
   oy: 320,
   radii: [100, 195, 290],
   items: [
-    { dx: 56, dy: -30, lines: ['Personointi'] },
-    { dx: 30, dy: -72, lines: ['Tekoäly'] },
-    { dx: 145, dy: -50, lines: ['Korvaus-', 'asiat'] },
-    { dx: 45, dy: -150, lines: ['Mobiili-', 'strategiat'] },
-    { dx: 235, dy: -65, lines: ['Käyttö ja', 'viestintä'] },
-    { dx: 170, dy: -170, lines: ['SUOMI'], cap: true },
-    { dx: 105, dy: -105, lines: ['RUOTSI', 'NORJA', 'TANSKA'], cap: true },
+    { dx: 56, dy: -30, lines: ['Personali-', 'sation'] },
+    { dx: 30, dy: -72, lines: ['AI'] },
+    { dx: 145, dy: -50, lines: ['Claims'] },
+    { dx: 45, dy: -150, lines: ['Mobile', 'strategies'] },
+    { dx: 235, dy: -65, lines: ['Using and', 'communication'] },
+    { dx: 170, dy: -170, lines: ['FINLAND'], cap: true },
+    { dx: 105, dy: -105, lines: ['SWEDEN', 'NORWAY', 'DENMARK'], cap: true },
   ],
-  ticks: [{ dx: 50, text: 'Matala' }, { dx: 147, text: 'Keskitaso' }, { dx: 242, text: 'Korkea' }],
+  ticks: [{ dx: 50, text: 'Low' }, { dx: 147, text: 'Medium' }, { dx: 242, text: 'High' }],
   tickY: 342,
   xName: { x: 179, y: 370 },
   yName: { x: 12, y: 175 },
@@ -88,7 +88,7 @@ function level(l: Layout, it: Item) {
   return <text x={x} y={y} class={(it.cap ? 'pd-cap fd-cap' : 'fd-i') + dark}>{it.lines.map((l, k) => <tspan x={x} dy={k === 0 ? 0 : lh}>{l}</tspan>)}</text>;
 })}
 {v.ticks.map((t) => <text x={v.ox + t.dx} y={v.tickY} class="fd-tick">{t.text}</text>)}
-<text x={v.xName.x} y={v.xName.y} class="pd-cap fd-axis">ASIAKKAAN ITSENÄISYYS</text>
-<text x={v.yName.x} y={v.yName.y} class="pd-cap fd-axis" transform={`rotate(-90 ${v.yName.x} ${v.yName.y})`}>TAUSTAKYVYKKYYDET</text>
+<text x={v.xName.x} y={v.xName.y} class="pd-cap fd-axis">CUSTOMER SELF-SERVICE</text>
+<text x={v.yName.x} y={v.yName.y} class="pd-cap fd-axis" transform={`rotate(-90 ${v.yName.x} ${v.yName.y})`}>BACK-END CAPABILITIES</text>
 </svg>
 ))}

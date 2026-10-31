@@ -13,9 +13,9 @@ interface Layout {
 const { label, note } = Astro.props;
 
 const labels = {
-  data: [['Asiakas-', 'tutkimus'], ['Mystery', 'shopping'], ['Desk', 'study']],
-  framework: [['Tausta-', 'kyvykkyydet'], ['Kypsyys-', 'arvio'], ['Asiakkaan', 'itsenäisyys']],
-  results: [['Markkina-', 'aukot'], ['Kehityksen', 'suuntaus'], ['Vahvuudet']],
+  data: [['Customer', 'research'], ['Mystery', 'shopping'], ['Desk', 'study']],
+  framework: [['Back-end', 'capabilities'], ['Maturity', 'assessment'], ['Customer', 'self-service']],
+  results: [['Market', 'gaps'], ['Development', 'direction'], ['Strengths']],
 };
 // Sector order: upper right, bottom, upper left. Each sector spans 120 degrees.
 const sectors = [{ from: -90, to: 30, mid: -30 }, { from: 30, to: 150, mid: 90 }, { from: 150, to: 270, mid: 210 }];
@@ -28,7 +28,7 @@ const wide: Layout = {
     { cx: 595, cy: 170, r: 135, dark: true, items: labels.framework },
     { cx: 955, cy: 270, r: 135, plain: true, items: labels.results },
   ],
-  captions: [{ x: 235, y: 450, text: 'AINEISTO' }, { x: 595, y: 338, text: 'YHTEINEN KEHIKKO' }, { x: 955, y: 450, text: 'TULOS' }],
+  captions: [{ x: 235, y: 450, text: 'DATA' }, { x: 595, y: 338, text: 'SHARED FRAMEWORK' }, { x: 955, y: 450, text: 'RESULT' }],
   arrows: ['M 230 108 C 270 55 380 50 440 100', 'M 750 100 C 810 50 920 55 960 108', 'M 885 402 C 800 495 390 495 305 402'],
   note: { x: 595, y: 440, text: note },
 };
@@ -40,7 +40,7 @@ const tall: Layout = {
     { cx: 180, cy: 486, r: 124, dark: true, items: labels.framework },
     { cx: 180, cy: 832, r: 124, plain: true, items: labels.results },
   ],
-  captions: [{ x: 180, y: 288, text: 'AINEISTO' }, { x: 180, y: 642, text: 'YHTEINEN KEHIKKO' }, { x: 180, y: 988, text: 'TULOS' }],
+  captions: [{ x: 180, y: 288, text: 'DATA' }, { x: 180, y: 642, text: 'SHARED FRAMEWORK' }, { x: 180, y: 988, text: 'RESULT' }],
   arrows: ['M 180 306 L 180 350', 'M 180 660 L 180 704', 'M 306 880 C 368 780 368 210 312 114'],
   note: { x: 180, y: 1016, text: note },
 };

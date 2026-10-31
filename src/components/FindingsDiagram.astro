@@ -1,0 +1,88 @@
+---
+// Maturity map: a quarter circle in three bands (low, medium, high). The horizontal axis is customer independence,
+// the vertical axis is the back-end capabilities, so the two parts of the evaluation framework span the chart.
+// Placement is qualitative and at industry level: no company-specific values.
+interface Item { dx: number; dy: number; lines: string[]; cap?: boolean }
+interface Layout {
+  id: string;
+  viewBox: string;
+  ox: number;
+  oy: number;
+  radii: number[];
+  items: Item[];
+  ticks: { dx: number; text: string }[];
+  tickY: number;
+  xName: { x: number; y: number };
+  yName: { x: number; y: number };
+}
+const { label } = Astro.props;
+
+const wide: Layout = {
+  id: 'fd-w',
+  viewBox: '0 0 520 495',
+  ox: 60,
+  oy: 440,
+  radii: [130, 265, 400],
+  items: [
+    { dx: 79, dy: -32, lines: ['Personointi'] },
+    { dx: 37, dy: -76, lines: ['Tekoäly'] },
+    { dx: 184, dy: -74, lines: ['Korvausasiat'] },
+    { dx: 68, dy: -186, lines: ['Mobiili-', 'strategiat'] },
+    { dx: 309, dy: -125, lines: ['Käyttö ja', 'viestintä'] },
+    { dx: 235, dy: -235, lines: ['SUOMI'], cap: true },
+    { dx: 140, dy: -140, lines: ['RUOTSI', 'NORJA', 'TANSKA'], cap: true },
+  ],
+  ticks: [{ dx: 65, text: 'MATALA' }, { dx: 198, text: 'KESKITASO' }, { dx: 333, text: 'KORKEA' }],
+  tickY: 462,
+  xName: { x: 460, y: 485 },
+  yName: { x: 28, y: 240 },
+};
+const tall: Layout = {
+  id: 'fd-t',
+  viewBox: '0 0 342 380',
+  ox: 34,
+  oy: 320,
+  radii: [100, 195, 290],
+  items: [
+    { dx: 56, dy: -30, lines: ['Personointi'] },
+    { dx: 30, dy: -72, lines: ['Tekoäly'] },
+    { dx: 145, dy: -50, lines: ['Korvaus-', 'asiat'] },
+    { dx: 45, dy: -150, lines: ['Mobiili-', 'strategiat'] },
+    { dx: 235, dy: -65, lines: ['Käyttö ja', 'viestintä'] },
+    { dx: 170, dy: -170, lines: ['SUOMI'], cap: true },
+    { dx: 105, dy: -105, lines: ['RUOTSI', 'NORJA', 'TANSKA'], cap: true },
+  ],
+  ticks: [{ dx: 50, text: 'MATALA' }, { dx: 147, text: 'KESKITASO' }, { dx: 242, text: 'KORKEA' }],
+  tickY: 342,
+  xName: { x: 324, y: 368 },
+  yName: { x: 12, y: 175 },
+};
+
+// Quarter ring between two radii, in the upper right quadrant of the origin.
+function band(l: Layout, rin: number, rout: number) {
+  const { ox, oy } = l;
+  const inner = rin === 0 ? `L ${ox} ${oy}` : `L ${ox} ${oy - rin} A ${rin} ${rin} 0 0 1 ${ox + rin} ${oy}`;
+  return `M ${ox + rout} ${oy} A ${rout} ${rout} 0 0 0 ${ox} ${oy - rout} ${inner} Z`;
+}
+const opacity = [0.12, 0.2, 0.3];
+---
+{[wide, tall].map((v, n) => (
+<svg class={n === 0 ? 'pd-svg pd-wide' : 'pd-svg pd-tall'} viewBox={v.viewBox} role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
+<defs>
+{opacity.map((o, i) => <pattern id={`${v.id}-h${i}`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#0B0B14" stroke-opacity={o + 0.1} stroke-width="1.2" /></pattern>)}
+<marker id={`${v.id}-head`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M 1.5 1.5 L 8 5 L 1.5 8.5" fill="none" stroke="#0B0B14" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></marker>
+</defs>
+{v.radii.map((r, i) => <path d={band(v, i === 0 ? 0 : v.radii[i - 1], r)} fill={`url(#${v.id}-h${i})`} stroke="#0B0B14" stroke-width="1.2" />)}
+<path d={`M ${v.ox} ${v.oy} L ${v.ox + v.radii[2] + 24} ${v.oy}`} fill="none" stroke="#0B0B14" stroke-width="1.2" marker-end={`url(#${v.id}-head)`} />
+<path d={`M ${v.ox} ${v.oy} L ${v.ox} ${v.oy - v.radii[2] - 24}`} fill="none" stroke="#0B0B14" stroke-width="1.2" marker-end={`url(#${v.id}-head)`} />
+{v.items.map((it) => {
+  const lh = it.cap ? 14 : 16;
+  const x = v.ox + it.dx;
+  const y = v.oy + it.dy - ((it.lines.length - 1) * lh) / 2;
+  return <text x={x} y={y} class={it.cap ? 'pd-cap fd-cap' : 'fd-i'}>{it.lines.map((l, k) => <tspan x={x} dy={k === 0 ? 0 : lh}>{l}</tspan>)}</text>;
+})}
+{v.ticks.map((t) => <text x={v.ox + t.dx} y={v.tickY} class="pd-cap">{t.text}</text>)}
+<text x={v.xName.x} y={v.xName.y} class="pd-cap fd-axis fd-end">ASIAKKAAN ITSENÄISYYS</text>
+<text x={v.yName.x} y={v.yName.y} class="pd-cap fd-axis" transform={`rotate(-90 ${v.yName.x} ${v.yName.y})`}>TAUSTAKYVYKKYYDET</text>
+</svg>
+))}

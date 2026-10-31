@@ -5,6 +5,7 @@ import Split from '../components/Split.astro';
 import Hd from '../components/Hd.astro';
 import Timeline from '../components/Timeline.astro';
 import ProcessDiagram from '../components/ProcessDiagram.astro';
+import FindingsDiagram from '../components/FindingsDiagram.astro';
 
 // DRAFT. Not linked from the Works index and hidden from search engines (noindex).
 // The project was under NDA: the client is anonymised ("Nordic insurer"), but check the client's publishing permission before this goes public.
@@ -141,43 +142,29 @@ Kolme aineistolähdettä, yksi kehikko. Jokainen arvio tarkistettiin kyselyvasta
 </Split>
 
 <section class="fold">
-<Hd style="max-width:calc(760 * var(--u))">
-<Fragment slot="title">Löydökset</Fragment>
-Lopputuloksena syntyi 109-sivuinen benchmark-raportti, joka antaa yhtiölle yhteisen faktapohjan kilpailuasemasta jokaisella neljällä markkinalla. Julkaistavissa olevat yleistason havainnot:
+<Hd style="max-width:calc(900 * var(--u))">
+<Fragment slot="title">Löydökset ja tulokset</Fragment>
+Lopputuloksena syntyi 109-sivuinen benchmark-raportti, joka antaa yhtiölle yhteisen faktapohjan kilpailuasemasta kymmenen kilpailijan ja neljän markkinan osalta.
 </Hd>
-<div class="cols2">
+<div class="fd">
+<div class="fd-vis">
+<FindingsDiagram label="Kypsyyskartta: asiakkaan itsenäisyys vaaka-akselilla ja taustakyvykkyydet pystyakselilla. Käyttäminen ja viestintä ovat korkealla tasolla, korvausasiat ja mobiilistrategiat keskitasolla sekä personointi ja tekoäly matalalla. Suomi on korkealla tasolla, Ruotsi, Norja ja Tanska keskitasolla." />
+</div>
+<div class="fd-text">
 <div class="col">
+<h3>Yleistason havainnot</h3>
 <ul>
 <li><b>Suomi erottui edukseen.</b> Suomen markkina oli digitaalisesti kypsin; Ruotsi, Norja ja Tanska asettuivat keskitasolle.</li>
 <li><b>Itsepalvelu on kaikkien suunta, mutta korvausasiat hoidetaan yhä puhelimessa.</b> Haastatellut asiakkaat soittivat mieluummin asiakaspalveluun kuin ilmoittivat vahingon digitaalisesti.</li>
 <li><b>Tekoäly näkyi puheissa, ei asiakkaan arjessa.</b> Vain yksi vertailun yhtiöistä tarjosi julkisesti generatiivista tekoälyä asiakaspalvelussa.</li>
-</ul>
-</div>
-<div class="col">
-<ul>
 <li><b>Personointi ja lisämyynti olivat koko alan heikko kohta.</b> Asiakas pystyy käyttämään ja viestimään digitaalisesti hyvin, mutta räätälöidyt tarjoukset puuttuvat lähes kaikilta.</li>
 <li><b>Mobiilistrategiat vaihtelevat.</b> Natiivit sovellukset, cross-platform-ratkaisut ja wrapper-sovellukset elävät rinnakkain, myös saman yhtiön eri maissa.</li>
 </ul>
 </div>
-</div>
-</section>
-
-<section class="fold">
-<Hd style="max-width:calc(760 * var(--u))">
-<Fragment slot="title">Tulokset ja vaikutus</Fragment>
-Yhtiölle raportti toi näkyviin vahvuudet, esimerkiksi sujuvan vahinkoilmoituksen kaikissa kanavissa ja lyhyen kirjautumattoman ostopolun, sekä markkinakohtaiset aukot, joihin kehitystä voi kohdistaa.
-</Hd>
-<div class="rowpad">
-<div class="stats3">
-<div class="stat"><div class="big">109</div><div class="lab">Sivun benchmark-raportti</div></div>
-<div class="stat"><div class="big">10</div><div class="lab">Kilpailijaa</div></div>
-<div class="stat"><div class="big">4</div><div class="lab">Markkinaa</div></div>
-</div>
-</div>
-<div class="cols2">
 <div class="col">
 <h3>Vaikutus</h3>
 <p class="strong">Ulkopuolinen näkymä vahvisti yhtiön oman tulkinnan markkinasta ja antoi sille faktapohjan. Tulokset ohjasivat seuraavan vuoden kehitysbudjettien kohdentamista.</p>
+</div>
 </div>
 </div>
 </section>

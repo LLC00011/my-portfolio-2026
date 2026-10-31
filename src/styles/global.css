@@ -319,3 +319,19 @@ img.ab{width:100% !important}
 .berg-text{grid-template-columns:minmax(0,1fr);gap:calc(20 * var(--u));align-items:start;padding:calc(24 * var(--u)) 0}
 .berg .col h3{font-size:calc(16.5 * var(--u))}
 }
+
+/* Findings and results fold: maturity map next to the findings */
+.fd{position:relative;z-index:2;display:grid;grid-template-columns:calc(520 * var(--u)) minmax(0,1fr);gap:calc(56 * var(--u));align-items:start;padding:calc(12 * var(--u)) calc(135 * var(--u)) 0 calc(100 * var(--u))}
+.fd-text{display:flex;flex-direction:column;gap:calc(28 * var(--u));padding-top:calc(40 * var(--u))}
+.fd .col{gap:calc(16 * var(--u))}
+.fd .col ul{gap:calc(13 * var(--u))}
+.pd-svg .fd-i{font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:central}
+.pd-svg .fd-cap{font-size:11.5px;dominant-baseline:central}
+.pd-svg .fd-axis{font-size:11.5px}
+.pd-svg .fd-end{text-anchor:end}
+@media (max-width:1179px),(max-aspect-ratio:1/1){
+.fd{grid-template-columns:minmax(0,1fr);gap:calc(36 * var(--u));padding:calc(28 * var(--u)) calc(24 * var(--u)) calc(110 * var(--u))}
+.fd-text{padding-top:0}
+.fd .pd-tall{max-width:none}
+.pd-svg .fd-i{font-size:12px}
+}

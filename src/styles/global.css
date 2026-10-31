@@ -159,6 +159,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .prevwrap.end .tip{opacity:1;transform:translate(0,-50%)}
 .prev{position:relative;flex:none;box-sizing:border-box;width:calc(40 * var(--pu));height:calc(40 * var(--pu));border-radius:50%;background:#FFFFFF;color:#0B0F1C;border:1px solid rgba(11,15,28,0.15);display:flex;align-items:center;justify-content:center;transition:opacity .2s ease}
 .prev:hover{opacity:.6}
+.prev .tip{pointer-events:auto}
 .prev svg{width:calc(18 * var(--pu));height:calc(18 * var(--pu));fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* Entrance: the arrow grows into the pill and the hero fades in on every arrival at a case page */
@@ -281,13 +282,14 @@ img.ab{width:100% !important}
 .ic-link{width:calc(44 * var(--pu));height:calc(44 * var(--pu))}
 .go{width:calc(44 * var(--pu));height:calc(44 * var(--pu))}
 .gowrap{align-items:center;animation-name:pill-grow-h}
-.prevwrap{align-items:center}
-.prevwrap.end{animation-name:pill-grow-h}
-.ic,.gowrap,.prevwrap{position:static}
-.prev{width:calc(44 * var(--pu));height:calc(44 * var(--pu))}
+.ic,.gowrap{position:static}
+/* In the horizontal pill the previous case is a label chip stacked above the next-case label, over the next arrow */
+.prevwrap.end{display:contents}
+.prev{display:contents}
+.prev svg{display:none}
 .tip{left:50%;top:auto;bottom:calc(100% + 12 * var(--pu));transform:translate(-50%,calc(6 * var(--pu)));font-size:calc(15 * var(--pu))}
 .ic-link:focus-visible + .tip,.gowrap.end .tip{transform:translate(-50%,0)}
-.prevwrap.end .tip{transform:translate(-50%,0);bottom:calc(100% + 58 * var(--pu))}
+.prevwrap.end .tip{left:auto;right:calc(38 * var(--pu));transform:translate(50%,0);bottom:calc(100% + 58 * var(--pu))}
 @media (hover:hover){.ic:hover .tip{transform:translate(-50%,0)}}
 }
 

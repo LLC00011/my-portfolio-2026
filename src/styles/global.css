@@ -81,7 +81,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2B4BFF;outline-offset:3p
 .lead.sm{font-size:calc(16 * var(--u));line-height:1.28}
 .hero{height:calc(800 * var(--u));min-height:0;overflow:hidden;background:#FAFAFA}
 .hero img,.hero svg{display:block;width:100%;height:100%;object-fit:cover}
-.hero-word{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:700;font-size:925px;fill:#fff}
+.hero-word{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:850px;letter-spacing:-28px;fill:#fff}
 .hero-caption{font-family:'Roboto Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:27px;text-transform:uppercase;fill:#0B0B14}
 .band{position:absolute;display:block;z-index:0}
 .patch{position:absolute;background:#FAFAFA;z-index:1}

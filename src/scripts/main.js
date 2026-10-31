@@ -29,9 +29,15 @@ window.addEventListener('pageshow', function (e) {
     var q = narrow.matches ? '.fold:not(.split), .split .photo, .split .info' : '.fold';
     return Array.prototype.slice.call(snap.querySelectorAll(q));
   }
+  // The end of a case is where the last fold has been seen in full; the footer sits below it.
+  function endTop() {
+    var all = snap.querySelectorAll('.fold');
+    var last = all[all.length - 1];
+    return last ? extent(last).bottom - snap.clientHeight : snap.scrollHeight - snap.clientHeight;
+  }
   function update() {
-    // Same rule at every size: the end is the bottom of the scroll, which is also where the ring is full.
-    var range = snap.scrollHeight - snap.clientHeight;
+    // Same rule at every size: the end is the bottom of the last fold, which is also where the ring is full.
+    var range = endTop();
     atEnd = range > 0 ? snap.scrollTop >= range - 2 : true;
     var progress = range > 0 ? Math.min(1, Math.max(0, snap.scrollTop / range)) : 1;
     bar.style.strokeDashoffset = String(CIRC * (1 - progress));
@@ -91,7 +97,7 @@ window.addEventListener('pageshow', function (e) {
   function moveForward() {
     var view = snap.clientHeight;
     var pos = target !== null ? target : snap.scrollTop;
-    if (pos >= snap.scrollHeight - view - 2) return false;
+    if (pos >= endTop() - 2) return false;
     var list = stops();
     var index = 0;
     list.forEach(function (el, k) { if (extent(el).top <= pos + 8) index = k; });

@@ -386,3 +386,8 @@ img.ab{width:100% !important}
 .sug-w::before{width:calc(22 * var(--u))}
 .sug-w::after{left:calc(14 * var(--u))}
 }
+
+/* Denser text column for a fold with a lot of copy (desktop only; mobile keeps its own spacing) */
+@media (min-width:1180px) and (min-aspect-ratio:1/1){
+.info.snug{padding:calc(60 * var(--u)) calc(48 * var(--u)) calc(44 * var(--u)) calc(72 * var(--u));gap:calc(28 * var(--u))}
+}

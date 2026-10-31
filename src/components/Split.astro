@@ -13,9 +13,10 @@ interface Props {
   narrow?: boolean | 's';
   h1?: boolean;
   infoStyle?: string;
+  snug?: boolean;
   placeholder?: string;
 }
-const { image, alt = '', pos = '50% 50%', pw = 57.3, rev = false, padR = false, narrow = false, h1 = false, infoStyle, placeholder } = Astro.props;
+const { image, alt = '', pos = '50% 50%', pw = 57.3, rev = false, padR = false, narrow = false, h1 = false, infoStyle, placeholder, snug = false } = Astro.props;
 const Tag = h1 ? 'h1' : 'h2';
 const titleClass = 'h' + (narrow === 's' ? ' narrow-s' : narrow ? ' narrow' : '');
 ---
@@ -27,7 +28,7 @@ const titleClass = 'h' + (narrow === 's' ? ' narrow-s' : narrow ? ' narrow' : ''
     ? <div class="vis"><slot name="visual" /></div>
     : <div class="ph fill" role="img" aria-label={alt || 'Image placeholder'}>{placeholder}</div>}
 </div>
-<div class:list={['info', { 'pad-r': padR }]} style={infoStyle}>
+<div class:list={['info', { 'pad-r': padR, snug }]} style={infoStyle}>
 <div class="head">
 <Tag class={titleClass}><slot name="title" /></Tag>
 <p class="sans lead"><slot name="lead" /></p>
